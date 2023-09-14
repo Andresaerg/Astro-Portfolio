@@ -6,8 +6,8 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html class="dark">
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="bg-light-style h-screen dark:bg-zinc-900">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description">
@@ -29,11 +29,16 @@ const { title } = Astro.props;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151A;
 		background-size: 224px;
+		background: #13151A;
 	}
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+	.bg-light-style{
+		background: var(--accent-light);
+	}
+	.bg-dark-style{
 	}
 </style>

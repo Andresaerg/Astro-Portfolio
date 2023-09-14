@@ -44,7 +44,7 @@
   </script>
 
 <style>
-/* Define una transición CSS para animar la rotación del botón */
+/* Define una transición CSS para animar al botón */
   span.base{
     width: 25px;
     height: 3px;

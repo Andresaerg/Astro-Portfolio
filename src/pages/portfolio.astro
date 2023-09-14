@@ -5,8 +5,8 @@ import BurgerButton from "../components/BurgerButton.vue";
 ---
 
 <Layout title="Andrés Rosales | Engineer">
-    <main>
-        <nav class="fixed top-0 flex justify-between items-center w-full bg-sky-500 p-4 text-white dark:bg-sky-900 text-slate-500">
+    <main class="bg">
+        <nav id="inicio" class="fixed top-0 flex justify-between items-center w-full bg-sky-500 pt-4 pb-4 pr-10 pl-10 text-white dark:bg-sky-900 text-slate-500">
           <div class="">
             <a href="#">
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 128 128" class="w-10 h-10 text-white dark:text-slate-200">
@@ -21,7 +21,7 @@ import BurgerButton from "../components/BurgerButton.vue";
                 <span class="block w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
               </li>
             </a>
-            <a href="#" class="group border-solid border-r-2 border-white-600 pr-4 h-10 flex flex-wrap items-center">
+            <a href="#info" class="group border-solid border-r-2 border-white-600 pr-4 h-10 flex flex-wrap items-center">
               <li>
                 Sobre mí
                 <span class="block w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
@@ -50,5 +50,8 @@ import BurgerButton from "../components/BurgerButton.vue";
           <BurgerButton class="md:hidden text-white text-xl" label=" " client:load/>
           
         </nav>
+        <section id="info">
+          
+        </section>
     </main>
 </Layout>
