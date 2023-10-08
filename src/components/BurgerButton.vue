@@ -6,7 +6,7 @@
 
   
       <!-- Menú desplegable -->
-      <ul id="test" v-bind:class="{ hidden: !isOpen }" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm h-screen flex items-center justify-center flex-col">
+      <ul id="test" v-bind:class="{ hidden: !isOpen }" class="fixed inset-0 bg-black bg-opacity-75 backdrop-blur-sm h-screen flex items-center justify-center flex-col">
         <li><a href="#">Inicio</a></li>
         <li><a href="#">Sobre mí</a></li>
         <li><a href="#">Habilidades</a></li>
@@ -33,6 +33,11 @@
       // Actualiza el valor de isOpen cuando se hace clic en el botón
       const handleClick = () => {
         isOpen.value = !isOpen.value;
+        if (isOpen.value) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
+        }
       };
 
       return {

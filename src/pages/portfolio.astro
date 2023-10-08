@@ -2,38 +2,44 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import BurgerButton from "../components/BurgerButton.vue";
+import V_svg from "../components/v-svg.vue";
 ---
 
 <Layout title="Andrés Rosales | Engineer">
     <main>
-        <nav class="fixed top-0 flex justify-between items-center w-full bg-sky-500 p-4 text-white dark:bg-sky-900 text-slate-500">
+        <nav class="fixed top-0 flex justify-between items-center w-full bg-sky-500 p-4 text-gray-100 bold dark:bg-sky-900 dark:text-slate-200">
           <div class="">
-            <a href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 128 128" class="w-10 h-10 text-white dark:text-slate-200">
+            <a href="#" class="flex flex-row items-center gap-x-4 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 text-transparent bg-clip-text">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 128 128" class="w-10 h-10 text-gray-100 dark:text-slate-200">
                 <path d="M50.4 78.5a75.1 75.1 0 0 0-28.5 6.9l24.2-65.7c.7-2 1.9-3.2 3.4-3.2h29c1.5 0 2.7 1.2 3.4 3.2l24.2 65.7s-11.6-7-28.5-7L67 45.5c-.4-1.7-1.6-2.8-2.9-2.8-1.3 0-2.5 1.1-2.9 2.7L50.4 78.5Zm-1.1 28.2Zm-4.2-20.2c-2 6.6-.6 15.8 4.2 20.2a17.5 17.5 0 0 1 .2-.7 5.5 5.5 0 0 1 5.7-4.5c2.8.1 4.3 1.5 4.7 4.7.2 1.1.2 2.3.2 3.5v.4c0 2.7.7 5.2 2.2 7.4a13 13 0 0 0 5.7 4.9v-.3l-.2-.3c-1.8-5.6-.5-9.5 4.4-12.8l1.5-1a73 73 0 0 0 3.2-2.2 16 16 0 0 0 6.8-11.4c.3-2 .1-4-.6-6l-.8.6-1.6 1a37 37 0 0 1-22.4 2.7c-5-.7-9.7-2-13.2-6.2Z" />
               </svg>
+              <div class="hidden md:flex md:flex-col md:justify-center md:items-center">
+                <span class="font-bold tracking-[1rem] -mr-4">ARCODEV</span>
+                <span class="text-xs">Andrés Rosales Code Developer</span>
+                <!-- <span class="text-xs">with astro</span> -->
+              </div>
             </a>
           </div>
           <ul class="hidden md:flex flex-wrap items-center gap-4">
-            <a href="#" class="group border-solid border-r-2 border-white-600 pr-4 h-10 flex flex-wrap items-center">
+            <a href="#" class="group border-solid /*border-r-2 border-white-600*/ pr-4 h-10 flex flex-wrap items-center">
               <li>
                 Inicio
                 <span class="block w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
               </li>
             </a>
-            <a href="#" class="group border-solid border-r-2 border-white-600 pr-4 h-10 flex flex-wrap items-center">
+            <a href="#" class="group border-solid /*border-r-2 border-white-600*/ pr-4 h-10 flex flex-wrap items-center">
               <li>
                 Sobre mí
                 <span class="block w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
               </li>
             </a>
-            <a href="#" class="group border-solid border-r-2 border-white-600 pr-4 h-10 flex flex-wrap items-center">
+            <a href="#" class="group border-solid /*border-r-2 border-white-600*/ pr-4 h-10 flex flex-wrap items-center">
               <li>
                 Habilidades
                 <span class="block w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
               </li>
             </a>
-            <a href="#" class="group border-solid border-r-2 border-white-600 pr-4 h-10 flex flex-wrap items-center">
+            <a href="#" class="group border-solid /*border-r-2 border-white-600*/ pr-4 h-10 flex flex-wrap items-center">
               <li>
                 Proyectos
                 <span class="block w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
@@ -50,5 +56,86 @@ import BurgerButton from "../components/BurgerButton.vue";
           <BurgerButton class="md:hidden text-white text-xl" label=" " client:load/>
           
         </nav>
+
+        <section class="flex flex-col md:flex-row md:justify-around items-center">
+          <div class="flex flex-col gap-5 m-5 md:gap-8 md:m-10 md:w-1/2">
+            <h1 class="text-3xl md:text-4xl font-bold">Bienvenido, soy <span class="text-gradient">Andrés Rosales</span> 👋</h1>
+            <p class="tex-md font-semibold md:text-lg"><span class="text-gradient font-bold">Ingeniero en informática y software developer</span>. Desarrollo proyectos orientados al entorno web, priorizando la experiencia de usuario, interfaz y funcionalidades de los sistemas. Pensados para integrarse acorde a las estrategias e imagen de tu marca.</p>
+            <ul class="flex flex-row items-center gap-x-4">
+              <li>
+                <a href="https://github.com/Andresaerg" target="_blank">
+                  <V_svg name="Github" customClass="w-6 md:w-8 hover:text-sky-500 dark:hover:text-sky-900 transition duration-500 cursor-pointer"/>
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/+584246155748" target="_blank">
+                  <V_svg name="Whatsapp" customClass="w-6 md:w-8 hover:text-sky-500 dark:hover:text-sky-900 transition duration-500 cursor-pointer"/>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:arcodev10@gmail.com">
+                  <V_svg name="Mail" customClass="w-6 md:w-8 hover:text-sky-500 dark:hover:text-sky-900 transition duration-500 cursor-pointer"/>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/andrés-rosales-21423125b/" target="_blank">
+                  <V_svg name="LinkedIn" customClass="w-6 md:w-8 hover:text-sky-500 dark:hover:text-sky-900 transition duration-500 cursor-pointer"/>
+                </a>
+              </li>
+            </ul>
+            <button class="flex items-center justify-center uppercase rounded px-4 py-2 font-bold w-full md:w-[10rem] bg-sky-500 hover:bg-sky-600 text-gray-100 dark:bg-sky-900 dark:hover:bg-sky-800 transition duration-500">
+              Curriculum
+            </button>
+          </div>
+          <div class="flex justify-center rounded-full bg-gradient-to-tr from-cyan-500 to-blue-500 border-2 border-sky-500 dark:border-sky-900 overflow-hidden">
+            <V_svg name="Avatar" customClass="w-64"/>
+          </div>
+        </section>
+
+        <h2 class="text-gradient md:mt-8">Sobre mí</h2>
+        <section class="rounded-lg p-4 font-semibold bg-white border-2 border-[#EFF3F5] dark:bg-[#212E36] dark:border-[#2A3B47] md:mx-[7.5rem]">
+          <p>
+            ¡Hola! Soy Andrés Rosales, un apasionado del desarrollo de software, diseño web y las diversas tecnologías que surgen día a día. Con más de un año de experiencia en el campo, me especializo en la creación de aplicaciones web,
+            tanto en el frontend como en el backend, encargándome totalmente del diseño web, desarrollo de bases de datos, lógica de programación y puesta en producción de los servicios.
+            Mi enfoque se basa en desarrollar proyectos únicos que reflejen la identidad de tu negocio, sean escalables, mantenibles y eficientes.
+          </p>
+          <br>
+          <!-- <p>
+            Mi trayectoria incluye la colaboración en pequeños proyectos de diversos sectores, creando sistemas visualmente agradables e internamente funcionales. Utilizando tecnologías estables, con reconocida trayectoria y amplios usos,
+            de igual forma me mantengo al tanto de las nuevas tecnologías y la última tendencia, haciendo uso de las mismas para conocer y mejorar mi stack.
+          </p> -->
+          <div>
+            <span>Entre las tecnologías que utilizo se encuentran: </span>
+            <div class="flex flex-col flex-wrap items-center md:flex-row gap-4 md:gap-8">
+              <div><img src="https://www.alura.com.br/artigos/assets/html-css-js/imagem-1.png" alt="" class="w-16"></div>
+              <div><img src="https://2.bp.blogspot.com/-u7D-CIDmuzE/XHSaUZ74evI/AAAAAAAASEw/tDY0LYG-Ra4rMlSUi9BLioDgT5WT5MUOwCLcBGAs/s1600/CSS%2B3.png" alt="" class="w-24"></div>
+              <div><img src="https://1000marcas.net/wp-content/uploads/2020/11/JavaScript-logo.png" alt="" class="w-24"></div>
+              <div><img src="https://logos-download.com/wp-content/uploads/2016/09/PHP_logo.png" alt="" class="w-16"></div>
+              <div><img src="https://logospng.org/download/laravel/logo-laravel-1024.png" alt="" class="w-24"></div>
+              <div><img src="https://raw.githubusercontent.com/github/explore/5cc0a03a302ec862c4aeac2a22a513ae31c35432/topics/astro/astro.png" alt="" class="w-16"></div>
+              <div><img src="https://th.bing.com/th/id/R.abd133b7ccf964500742cb3d533e77e7?rik=ZQl6ZxbQBJ2HxA&riu=http%3a%2f%2falpinetoolbox.com%2falpinejs.png&ehk=rqUK3n9B%2f%2bOrTf7JDemOa13JCaPJmvwSXMXRvM9Ticg%3d&risl=&pid=ImgRaw&r=0" alt="" class="w-32"></div>
+              <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png" alt="" class="w-16"></div>
+              <div><img src="https://logos-download.com/wp-content/uploads/2016/09/Node_logo_NodeJS.png" alt="" class="w-24"></div>
+              <div><img src="https://tse1.mm.bing.net/th/id/OIP.qu59Ux-3m4395lJy46M5iwHaEo?pid=ImgDet&rs=1" alt="" class="w-32"></div>
+            </div>
+          </div>
+        </section>
     </main>
 </Layout>
+
+<style>
+  .text-gradient {
+		background-image: linear-gradient(90deg, rgb(2, 132, 199), rgb(14, 165, 233), rgb(103, 232, 249));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+
+  h2{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 8rem;
+    margin-right: 8rem;
+  }
+</style>
