@@ -7,21 +7,34 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="bg-[#FBFBFE] dark:bg-[#192229]">
+<html lang="en" class="dark"> <!-- class="bg-[#FBFBFE] dark:bg-[#192229]"> -->
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description">
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<style id="theme-style"></style>
 		<title>{title}</title>
 	</head>
-	<body class="text-gray-900 dark:text-gray-100">
+	<body class="bg-[#FBFBFE] dark:bg-[#192229] text-gray-900 dark:text-gray-100"><!-- class="text-gray-900 dark:text-gray-100"> -->
 		<slot />
 	</body>
 </html>
 <style is:global>
+	@import '../../node_modules/flowbite/dist/flowbite.css';
+
+	/* @layer base{
+		:root{
+			--color-bkg: 210deg 40% 98%;
+			--color-content: 217deg 32.6% 17.5%;
+			--color-accent1: 288deg 95.8% 90.6%;
+			--color-accent2: 168deg 83.8% 78.2%;
+		}
+	} */
+
 	:root {
+		color-scheme: light dark;
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;
 		--accent-dark: 49, 10, 101;
