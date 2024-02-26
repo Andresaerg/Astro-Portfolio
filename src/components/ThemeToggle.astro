@@ -1,0 +1,68 @@
+---
+import MoonIcon from './icons/Moon.astro';
+import SunIcon from './icons/Sun.astro';
+---
+
+<button id="toggle" data-tooltip-target="tooltip-toggle" type="button" class="text-gray-500 inline-flex items-center justify-center dark:text-gray-400 hover:bg-gray-100 w-10 h-10 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"> <!-- class="relative group text-white bg-transparent font-medium rounded-lg text-sm focus:outline-none"> -->
+
+    <span class="sr-only">Elige el tema</span>
+    <MoonIcon id="dark" class="theme-toggler w-5 h-5 text-gray-800 dark:text-white"/>
+    <SunIcon id="light" class="theme-toggler w-6 h-6 text-white dark:text-dark-800"/>
+    
+</button>
+
+<div id="tooltip-toggle" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+    <!-- Se actualiza en el script -->
+    <div class="tooltip-arrow" data-popper-arrow></div>
+</div>
+
+<script is:inline>
+    
+    const THEME_KEY = 'theme';
+    const DARK_THEME = 'dark';
+    const LIGHT_THEME = 'light';
+
+    // Manejo de eventos
+    document.getElementById('toggle').addEventListener('click', toggleTheme);
+
+    // Recuperar la preferencia de tema del usuario
+    function getThemePreference() {
+        return localStorage.getItem(THEME_KEY) || (window.matchMedia("(prefers-color-scheme: dark)").matches ? DARK_THEME : LIGHT_THEME);
+    }
+
+    // Guardar la preferencia de tema del usuario
+    function setThemePreference(theme) {
+        localStorage.setItem(THEME_KEY, theme);
+        const themePreference = getThemePreference();
+        document.documentElement.classList[themePreference === DARK_THEME ? "add" : "remove"]('dark');
+    }
+
+    // Actualizar el icono
+    function updateIcon(theme) {
+        document.querySelectorAll(".theme-toggler").forEach((element) => {
+            element.style.display = element.id === theme ? 'none' : 'block';
+        });
+    }
+
+    // Cambiar el tema
+    function toggleTheme() {
+        const currentTheme = getThemePreference();
+        const newTheme = currentTheme === DARK_THEME ? LIGHT_THEME : DARK_THEME;
+        setThemePreference(newTheme);
+        updateIcon(newTheme);
+        updateTooltip(newTheme);
+    }
+
+    // Actualizar el texto del tooltip
+    function updateTooltip(theme) {
+        const tooltip = document.getElementById('tooltip-toggle');
+        tooltip.textContent = theme === DARK_THEME ? 'Usar modo claro' : 'Usar modo oscuro';
+    }
+
+    // Inicializar el tema
+    const currentTheme = getThemePreference();
+    updateIcon(currentTheme);
+    updateTooltip(currentTheme);
+    setThemePreference(currentTheme);
+    
+</script>

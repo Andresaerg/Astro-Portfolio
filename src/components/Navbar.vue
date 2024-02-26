@@ -4,7 +4,7 @@
 
 <template>
     <div class="flex justify-center">
-        <nav class="fixed top-0 flex justify-between items-center w-10/12 rounded-full border /*border-gray-500*/ bg-sky-500 p-2 text-gray-100 bold /*dark:bg-sky-900*/ dark:text-slate-200">
+        <nav class="fixed top-0 flex justify-between items-center w-10/12 rounded-full /*border*/ /*border-gray-500*/ /*bg-sky-500*/ p-2 text-gray-100 bold /*dark:bg-sky-900*/ dark:text-slate-200">
             <div class="flex justify-between gap-x-14">
                 <a href="#" class="flex flex-row items-center gap-x-4 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 text-transparent bg-clip-text">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 128 128" class="w-10 h-10 text-gray-100 dark:text-slate-200">
@@ -229,3 +229,38 @@ export default {
   },
 };
 </script> -->
+
+<script>
+export default {
+    data() {
+        return {
+            dark: typeof window !== 'undefined' ? window.localStorage.getItem('theme') === 'dark' : true,
+        };
+    },
+    methods: {
+        toggleTheme() {
+            this.dark = !this.dark;
+            const html = document.documentElement;
+            if (this.dark) {
+                html.classList.add('dark');
+                if (typeof window !== 'undefined') {
+                    window.localStorage.setItem('theme', 'dark');
+                }
+            } else {
+                html.classList.remove('dark');
+                if (typeof window !== 'undefined') {
+                    window.localStorage.setItem('theme', 'light');
+                }
+            }
+        },
+    },
+    mounted() {
+        const html = document.documentElement;
+        if (this.dark) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+    },
+};
+</script>
