@@ -2,80 +2,67 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import BurgerButton from "../components/BurgerButton.vue";
-//import Navbar from "../components/Navbar.vue";
 import V_svg from "../components/v-svg.vue";
 ---
 
 <Layout title="Andrés Rosales | Engineer">
-    <main>
-      <!-- <Navbar client:load/> -->
-
-        <section class="flex flex-col md:flex-row md:justify-around items-center">
-          <div class="flex flex-col gap-5 m-5 md:gap-8 md:m-10 md:w-1/2">
-            <h1 class="text-3xl md:text-4xl font-bold">Bienvenido, soy <span class="text-gradient">Andrés Rosales</span> 👋</h1>
-            <p class="tex-md font-semibold md:text-lg"><span class="text-gradient font-bold">Ingeniero en informática y software developer</span>. Desarrollo proyectos orientados al entorno web, priorizando la experiencia de usuario, interfaz y funcionalidades de los sistemas. Pensados para integrarse acorde a las estrategias e imagen de tu marca.</p>
-            <ul class="flex flex-row items-center gap-x-4">
-              <li>
-                <a href="https://github.com/Andresaerg" target="_blank">
-                  <V_svg name="Github" customClass="w-6 md:w-8 hover:text-sky-500 dark:hover:text-sky-900 transition duration-500 cursor-pointer"/>
-                </a>
-              </li>
-              <li>
-                <a href="https://wa.me/+584246155748" target="_blank">
-                  <V_svg name="Whatsapp" customClass="w-6 md:w-8 hover:text-sky-500 dark:hover:text-sky-900 transition duration-500 cursor-pointer"/>
-                </a>
-              </li>
-              <li>
-                <a href="mailto:arcodev10@gmail.com">
-                  <V_svg name="Mail" customClass="w-6 md:w-8 hover:text-sky-500 dark:hover:text-sky-900 transition duration-500 cursor-pointer"/>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/andrés-rosales-21423125b/" target="_blank">
-                  <V_svg name="LinkedIn" customClass="w-6 md:w-8 hover:text-sky-500 dark:hover:text-sky-900 transition duration-500 cursor-pointer"/>
-                </a>
-              </li>
-            </ul>
-            <button class="flex items-center justify-center uppercase rounded px-4 py-2 font-bold w-full md:w-[10rem] bg-sky-500 hover:bg-sky-600 text-gray-100 dark:bg-sky-900 dark:hover:bg-sky-800 transition duration-500">
-              Curriculum
+    <main class="">
+      <section class="w-full mx-auto py-16 md:py-28">
+        <div class="flex justify-center flex-col gap-y-4">
+          <div class="flex justify-center gap-x-4">
+            <h1 id="firstname" class="animate-fade-right">Andrés</h1>
+            <h1 id="lastname" class="animate-fade-left">Rosales</h1>
+          </div>
+          <div class="flex justify-center gap-x-4">
+            <h3 id="fullstack" class="animate-flip-down animate-delay-500">FULLSTACK</h3>
+            <h3 id="developer" class="animate-flip-up animate-delay-700">DEVELOPER</h3>
+          </div>
+          <div class="flex justify-center items-center gap-x-4">
+            <button class="animate-fade animate-delay-[1500ms]">
+              <V_svg name="Github" customClass="text-gray-800 w-6 h-6 dark:text-gray-100"/>
+            </button>
+            <button class="animate-fade animate-delay-[1750ms]">
+              <V_svg name="LinkedIn" customClass="text-gray-800 w-6 h-6 dark:text-gray-100"/>
+            </button>
+            <button class="animate-fade animate-delay-[2000ms]">
+              <V_svg name="Mail" customClass="text-gray-800 w-6 h-6 dark:text-gray-100"/>
+            </button>
+            <button class="animate-fade animate-delay-[2250ms]">
+              <V_svg name="Whatsapp" customClass="text-gray-800 w-6 h-6 dark:text-gray-100"/>
             </button>
           </div>
-          <div class="flex justify-center rounded-full bg-gradient-to-tr from-cyan-500 to-blue-500 border-2 border-sky-500 dark:border-sky-900 overflow-hidden">
-            <V_svg name="Avatar" customClass="w-64"/>
-          </div>
-        </section>
+        </div>
+      </section>
 
-        <h2 class="text-gradient md:mt-8">Sobre mí</h2>
-        <section class="rounded-lg p-4 font-semibold bg-white border-2 border-[#EFF3F5] dark:bg-[#212E36] dark:border-[#2A3B47] md:mx-[7.5rem]">
-          <p>
-            ¡Hola! Soy Andrés Rosales, un apasionado del desarrollo de software, diseño web y las diversas tecnologías que surgen día a día. Con más de un año de experiencia en el campo, me especializo en la creación de aplicaciones web,
-            tanto en el frontend como en el backend, encargándome totalmente del diseño web, desarrollo de bases de datos, lógica de programación y puesta en producción de los servicios.
-            Mi enfoque se basa en desarrollar proyectos únicos que reflejen la identidad de tu negocio, sean escalables, mantenibles y eficientes.
-          </p>
-          <br>
-          <!-- <p>
-            Mi trayectoria incluye la colaboración en pequeños proyectos de diversos sectores, creando sistemas visualmente agradables e internamente funcionales. Utilizando tecnologías estables, con reconocida trayectoria y amplios usos,
-            de igual forma me mantengo al tanto de las nuevas tecnologías y la última tendencia, haciendo uso de las mismas para conocer y mejorar mi stack.
-          </p> -->
-          <div>
-            <span>Entre las tecnologías que utilizo se encuentran: </span>
-            <div class="flex flex-col flex-wrap items-center md:flex-row gap-4 md:gap-8">
-              <div><img src="https://www.alura.com.br/artigos/assets/html-css-js/imagem-1.png" alt="" class="w-16"></div>
-              <div><img src="https://2.bp.blogspot.com/-u7D-CIDmuzE/XHSaUZ74evI/AAAAAAAASEw/tDY0LYG-Ra4rMlSUi9BLioDgT5WT5MUOwCLcBGAs/s1600/CSS%2B3.png" alt="" class="w-24"></div>
-              <div><img src="https://1000marcas.net/wp-content/uploads/2020/11/JavaScript-logo.png" alt="" class="w-24"></div>
-              <div><img src="https://logos-download.com/wp-content/uploads/2016/09/PHP_logo.png" alt="" class="w-16"></div>
-              <div><img src="https://logospng.org/download/laravel/logo-laravel-1024.png" alt="" class="w-24"></div>
-              <div><img src="https://raw.githubusercontent.com/github/explore/5cc0a03a302ec862c4aeac2a22a513ae31c35432/topics/astro/astro.png" alt="" class="w-16"></div>
-              <div><img src="https://th.bing.com/th/id/R.abd133b7ccf964500742cb3d533e77e7?rik=ZQl6ZxbQBJ2HxA&riu=http%3a%2f%2falpinetoolbox.com%2falpinejs.png&ehk=rqUK3n9B%2f%2bOrTf7JDemOa13JCaPJmvwSXMXRvM9Ticg%3d&risl=&pid=ImgRaw&r=0" alt="" class="w-32"></div>
-              <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png" alt="" class="w-16"></div>
-              <div><img src="https://logos-download.com/wp-content/uploads/2016/09/Node_logo_NodeJS.png" alt="" class="w-24"></div>
-              <div><img src="https://tse1.mm.bing.net/th/id/OIP.qu59Ux-3m4395lJy46M5iwHaEo?pid=ImgDet&rs=1" alt="" class="w-32"></div>
-              <div class="fb-container">
-                <button class="fb-btn fb-btn-primary">Click me</button>
-              </div>              
+      <section class="w-full bg-sky-800 min-h-[100px]">
+        <div class="flex flex-col justify-around md:flex-row">
+          <div class="flex items-center gap-x-2">
+            <h2 id="experience">0</h2>
+            <div class="flex flex-col">
+              <span>AÑOS DE</span>
+              <span>EXPERIENCIA</span>
             </div>
           </div>
-        </section>
+
+          <div class="flex items-center gap-x-2">
+            <h2 id="projects">0</h2>
+            <div class="flex flex-col">
+              <span>PROYECTOS COMPLETADOS</span>
+              <span>ALREDEDOR DEL MUNDO</span>
+            </div>
+          </div>
+
+          <div class="flex justify-around items-center gap-x-8">
+            <img src="https://placehold.co/50x50/png" alt="item1">
+            <img src="https://placehold.co/50x50/png" alt="item2">
+            <img src="https://placehold.co/50x50/png" alt="item3">
+            <img src="https://placehold.co/50x50/png" alt="item4">
+            <img src="https://placehold.co/50x50/png" alt="item5">
+          </div>
+  
+        </div>
+      </section>
+
     </main>
 </Layout>
 
@@ -88,14 +75,45 @@ import V_svg from "../components/v-svg.vue";
 		background-position: 0%;
 	}
 
+  h1{
+    font-size: 5rem;
+    font-weight: bold;
+  }
+
   h2{
+    font-size: 4rem;
+    font-weight: bold;
+  }
+
+  h3{
     font-size: 2rem;
     font-weight: bold;
-    margin-left: 8rem;
-    margin-right: 8rem;
   }
+
 </style>
 
 <script type="module">
   import '../../node_modules/flowbite/dist/flowbite';
+
+  const play_numbers = (experience, element) => {
+    const exp = experience;
+    const exp_string = document.getElementById(element);
+    let i = 0;
+
+    function incrementNumber() {
+      if (i <= exp) {
+        exp_string.innerHTML = i;
+        i++;
+        setTimeout(incrementNumber, 100 /* / (i / 100) */);
+      }
+
+      if (i === exp)
+        exp_string.classList.add('animate-jump')
+    }
+
+    incrementNumber();
+  }
+
+play_numbers(3, 'experience');
+play_numbers(12, 'projects');
 </script>

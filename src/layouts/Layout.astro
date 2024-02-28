@@ -24,10 +24,8 @@ const { title } = Astro.props;
 				bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
 				dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
 		</div>
-		<!-- <div class="fixed min-h-screen overflow-y-scroll place-items-center place-content-center gap-16 before:absolute before:h-1/2 before:w-3/4 before:rounded-tr-full before:rounded-bl-full before:blur-3xl before:bg-accent-2 before:animate-spin-slower before:-z-10 before:bottom-0 before:left-0 after:absolute after:h-2/3 after:w-2/3 after:rounded-tr-full after:rounded-bl-full after:blur-3xl after:bg-accent-1/80 after:animate-spin-slow after:-z-10 after:top-0 after:right-0"> -->
 			<Navbar />
 			<slot />
-		<!-- </div> -->
 	</body>
 </html>
 <style is:global>
@@ -49,9 +47,9 @@ const { title } = Astro.props;
 		--accent-dark: 49, 10, 101;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
 	}
-	* {
+	/* * {
 		@apply transition-colors duration-200;
-	}
+	} */
 	
 	html {
 		font-family: system-ui, sans-serif;
