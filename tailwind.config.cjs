@@ -5,6 +5,9 @@ module.exports = {
     	'node_modules/flowbite/**/*.{js,jsx,ts,tsx}'
 	],
 	theme: {
+		fontFamily: {
+			'anta' : ["Anta", "sans-serif"]
+		},
 		extend: {
 			colors:{
 				accent: {
