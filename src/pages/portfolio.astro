@@ -7,7 +7,7 @@ import V_svg from "../components/v-svg.vue";
 
 <Layout title="Andrés Rosales | Engineer">
     <main class="">
-      <section class="w-full mx-auto py-16 md:py-28">
+      <section class="w-full mx-auto py-16 md:py-28 container">
         <div class="flex justify-center flex-col">
           <div class="flex justify-center gap-x-4">
             <h1 id="firstname" class="animate-fade-right font-anta"><span class="text-sky-500">And</span>rés</h1>
@@ -36,7 +36,7 @@ import V_svg from "../components/v-svg.vue";
         </div>
       </section>
 
-      <section class="w-full bg-sky-500 dark:bg-sky-800 min-h-[100px] /*text-gray-100*/">
+      <section class="w-full bg-sky-500 dark:bg-sky-800 min-h-[100px] text-gray-100">
         <div class="flex flex-col justify-around md:flex-row">
           <div class="flex items-center gap-x-2">
             <h2 id="experience">0</h2>
@@ -54,25 +54,77 @@ import V_svg from "../components/v-svg.vue";
             </div>
           </div>
 
-          <div class="flex flex-col items-center">
-            <div>
-              Proyecto realizado principalmente con:
-            </div>
-            <div class="flex justify-around items-center gap-x-8">
-              <img src="https://astro.build/assets/press/astro-logo-light-gradient.svg" class="w-36" alt="item1">
-              <img src="https://tailwindcss.com/_next/static/media/tailwindcss-logotype-white.944c5d0ef628083bb316f9b3d643385c86bcdb3d.svg" class="w-36" alt="item2">
-              <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/1200px-PHP-logo.svg.png" class="w-16" alt="item2"> -->
-              <!-- <img src="https://placehold.co/50x50/png" alt="item3"> -->
-              <!-- <img src="https://media.licdn.com/dms/image/D4D12AQEL9aeB8WqRaw/article-cover_image-shrink_600_2000/0/1685204779306?e=2147483647&v=beta&t=jr7Um-vZDvcgCCzx0a48zCEr3RtUyRVqelGOzrpL4bs" class="w-16" ="item3"> -->
-              <img src="https://flowbite.s3.amazonaws.com/brand/logo-dark/type/flowbite-logo.png" class="w-36" alt="item4">
-              <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/800px-Laravel.svg.png" class="w-12" alt="item4"> -->
-              <!-- <img src="https://media.licdn.com/dms/image/D4E12AQEhSWRTreXYew/article-cover_image-shrink_600_2000/0/1694479065771?e=2147483647&v=beta&t=2fX6sWIIQzrJhYJfi6lFLXv42TExMElMe1QZaOexx4M" class="w-32" alt="item4"> -->
-              <!-- <img src="https://mochikit.com/wp-content/uploads/2019/01/vue-js-logo.png" class="w-28" alt="item5"> -->
-            </div>
+          <div class="flex justify-around items-center gap-x-8">
+            <img src="https://astro.build/assets/press/astro-logo-light-gradient.svg" class="w-36" alt="item1">
+            <img src="https://tailwindcss.com/_next/static/media/tailwindcss-logotype-white.944c5d0ef628083bb316f9b3d643385c86bcdb3d.svg" class="w-36" alt="item2">
+            <img src="https://flowbite.s3.amazonaws.com/brand/logo-dark/type/flowbite-logo.png" class="w-36" alt="item3">
           </div>
-  
         </div>
       </section>
+
+      <div class="space-y-16 py-16">
+        <section class="w-10/12 mx-auto container">
+          <h3 class="flex gap-x-6 items-center mb-8">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-suitcase-lg-fill w-8 h-8" viewBox="0 0 16 16">
+                <path d="M7 0a2 2 0 0 0-2 2H1.5A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14H2a.5.5 0 0 0 1 0h10a.5.5 0 0 0 1 0h.5a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2H11a2 2 0 0 0-2-2zM6 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1zM3 13V3h1v10zm9 0V3h1v10z"/>
+              </svg>
+            </span>
+            Experiencia laboral
+          </h3>
+          <ol class="relative border-s border-gray-200 dark:border-gray-700">                  
+            <li class="mb-10 ms-4">
+              <div class="absolute w-3 h-3 bg-sky-400 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-sky-500 animate-ping animate-delay-[250ms]"></div>
+              <div class="absolute w-3 h-3 bg-sky-500 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-sky-600"></div>
+              <time class="mb-1 text-sm font-normal leading-none text-gray-600 dark:text-gray-300">Abril 2022 - Actualmente...</time>
+              <h4 class="text-2xl font-semibold text-sky-500 dark:text-sky-600 mb-2">Principal Software Engineer</h4>
+              <h4 class="text-lg font-semibold text-gray-900 dark:text-gray-300">Super Videomania</h4>
+              <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Responsable de analizar, diseñar y desarrollar la arquitectura, bases de datos y lógica para la producción de software y nuevas funcionalidades en los módulos ya existentes.</p>
+              <!-- <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">Learn more <svg class="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/> -->
+          </svg></a>
+            </li>
+            <li class="mb-10 ms-4">
+              <div class="absolute w-3 h-3 bg-sky-500 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-sky-600 animate-ping animate-delay-[500ms]"></div>
+              <div class="absolute w-3 h-3 bg-sky-500 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-sky-600"></div>
+              <time class="mb-1 text-sm font-normal leading-none text-gray-600 dark:text-gray-300">Marzo 2021 - Actualmente...</time>
+              <h4 class="text-2xl font-semibold text-sky-500 dark:text-sky-600 mb-2">Freelancer Developer</h4>
+              <h4 class="text-lg font-semibold text-gray-900 dark:text-gray-300">Freelance</h4>
+              <p class="text-base font-normal text-gray-500 dark:text-gray-400">Realizo proyectos en modalidad freelance y siempre estoy disponible para llevar a cabo el desarrollo de nuevas ideas.</p>
+            </li>
+            <li class="ms-4">
+              <div class="absolute w-3 h-3 bg-sky-400 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-sky-500 animate-ping animate-delay-[750ms]"></div>
+              <div class="absolute w-3 h-3 bg-sky-500 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-sky-600"></div>
+              <time class="mb-1 text-sm font-normal leading-none text-gray-600 dark:text-gray-300">Junio 2019 - Marzo 2022</time>
+              <h4 class="text-2xl font-semibold text-sky-500 dark:text-sky-600 mb-2">Técnico en seguridad electrónica</h4>
+              <h4 class="text-lg font-semibold text-gray-900 dark:text-gray-300">Térgyca</h4>
+              <p class="text-base font-normal text-gray-500 dark:text-gray-400">Encargado del mantenimiento, instalación y/o reparación  de equipos en seguridad electrónica.</p>
+            </li>
+            <li class="ms-4 h-8"></li>
+          </ol>
+        </section>
+
+        <section class="w-10/12 mx-auto container">
+          <h3 class="flex gap-x-6 items-center mb-8">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-braces w-8 h-8" viewBox="0 0 16 16">
+                <path d="M2.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C3.25 2 2.49 2.759 2.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6M13.886 7.9v.163c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456V7.332c-1.114 0-1.49-.362-1.49-1.456V4.352C13.51 2.759 12.75 2 11.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6"/>
+              </svg>
+            </span>
+            Proyectos realizados
+          </h3>
+          <div class="grid grid-cols-2 grid-rows-1 gap-x-12">
+            <div class="flex gap-x-8">
+              <Card href="https://arcodev.surge.sh/index.html" title="Prueba" body="Esto es una prueba de card"/>
+              <Card href="https://arcodev.surge.sh/index.html" title="Prueba 2" body="Esto es una prueba de card en parte 2"/>
+            </div>
+            <div class="flex flex-col gap-y-8">
+              <Card href="https://arcodev.surge.sh/index.html" title="Prueba col" body="Esto es una prueba de card en column"/>
+              <Card href="https://arcodev.surge.sh/index.html" title="Prueba 2 col" body="Esto es una prueba de card en column en parte 2"/>
+            </div>
+          </div>
+        </section>
+      </div>
 
     </main>
 </Layout>
