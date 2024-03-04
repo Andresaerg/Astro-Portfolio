@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import Hero from "../components/Hero.astro";
+import CounterBar from "../components/CounterBar.astro";
+import Experience from "../components/Experience.astro";
 import BurgerButton from "../components/BurgerButton.vue";
 import V_svg from "../components/v-svg.vue";
 ---
@@ -8,100 +11,16 @@ import V_svg from "../components/v-svg.vue";
 <Layout title="Andrés Rosales | Engineer">
     <main class="">
       <section class="w-full mx-auto py-16 md:py-28 container">
-        <div class="flex justify-center flex-col">
-          <div class="flex justify-center gap-x-4">
-            <h1 id="firstname" class="animate-fade-right font-anta"><span class="text-sky-500">And</span>rés</h1>
-            <h1 id="lastname" class="animate-fade-left font-anta"><span class="text-sky-500">Ros</span>ales</h1>
-          </div>
-          <div class="flex flex-col items-center gap-y-4">
-            <div class="flex justify-center gap-x-4">
-              <h3 id="fullstack" class="animate-flip-down animate-delay-500">FULLSTACK</h3>
-              <h3 id="developer" class="animate-flip-up animate-delay-700">DEVELOPER</h3>
-            </div>
-            <div class="flex justify-center items-center gap-x-4">
-              <button class="animate-fade animate-delay-[1500ms]">
-                <V_svg name="Github" customClass="text-gray-800 w-6 h-6 dark:text-gray-100"/>
-              </button>
-              <button class="animate-fade animate-delay-[1750ms]">
-                <V_svg name="LinkedIn" customClass="text-gray-800 w-7 h-7 dark:text-gray-100"/>
-              </button>
-              <!-- <button class="animate-fade animate-delay-[2000ms]">
-                <V_svg name="Mail" customClass="text-gray-800 w-6 h-6 dark:text-gray-100"/>
-              </button> -->
-              <button class="animate-fade animate-delay-[2000ms]">
-                <V_svg name="Telegram" customClass="text-gray-800 w-6 h-6 dark:text-gray-100"/>
-              </button>
-            </div>
-          </div>
-        </div>
+        <Hero />
       </section>
 
       <section class="w-full bg-sky-500 dark:bg-sky-800 min-h-[100px] text-gray-100">
-        <div class="flex flex-col justify-around md:flex-row">
-          <div class="flex items-center gap-x-2">
-            <h2 id="experience">0</h2>
-            <div class="flex flex-col">
-              <span>AÑOS DE</span>
-              <span>EXPERIENCIA</span>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-x-2">
-            <h2 id="projects">0</h2>
-            <div class="flex flex-col">
-              <span>PROYECTOS COMPLETADOS</span>
-              <span>ALREDEDOR DEL MUNDO</span>
-            </div>
-          </div>
-
-          <div class="flex justify-around items-center gap-x-8">
-            <img src="https://astro.build/assets/press/astro-logo-light-gradient.svg" class="w-36" alt="item1">
-            <img src="https://tailwindcss.com/_next/static/media/tailwindcss-logotype-white.944c5d0ef628083bb316f9b3d643385c86bcdb3d.svg" class="w-36" alt="item2">
-            <img src="https://flowbite.s3.amazonaws.com/brand/logo-dark/type/flowbite-logo.png" class="w-36" alt="item3">
-          </div>
-        </div>
+        <CounterBar />
       </section>
 
       <div class="space-y-16 py-16">
         <section class="w-10/12 mx-auto container">
-          <h3 class="flex gap-x-6 items-center mb-8">
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-suitcase-lg-fill w-8 h-8" viewBox="0 0 16 16">
-                <path d="M7 0a2 2 0 0 0-2 2H1.5A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14H2a.5.5 0 0 0 1 0h10a.5.5 0 0 0 1 0h.5a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2H11a2 2 0 0 0-2-2zM6 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1zM3 13V3h1v10zm9 0V3h1v10z"/>
-              </svg>
-            </span>
-            Experiencia laboral
-          </h3>
-          <ol class="relative border-s border-gray-200 dark:border-gray-700">                  
-            <li class="mb-10 ms-4">
-              <div class="absolute w-3 h-3 bg-sky-400 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-sky-500 animate-ping animate-delay-[250ms]"></div>
-              <div class="absolute w-3 h-3 bg-sky-500 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-sky-600"></div>
-              <time class="mb-1 text-sm font-normal leading-none text-gray-600 dark:text-gray-300">Abril 2022 - Actualmente...</time>
-              <h4 class="text-2xl font-semibold text-sky-500 dark:text-sky-600 mb-2">Principal Software Engineer</h4>
-              <h4 class="text-lg font-semibold text-gray-900 dark:text-gray-300">Super Videomania</h4>
-              <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Responsable de analizar, diseñar y desarrollar la arquitectura, bases de datos y lógica para la producción de software y nuevas funcionalidades en los módulos ya existentes.</p>
-              <!-- <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">Learn more <svg class="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/> -->
-          </svg></a>
-            </li>
-            <li class="mb-10 ms-4">
-              <div class="absolute w-3 h-3 bg-sky-500 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-sky-600 animate-ping animate-delay-[500ms]"></div>
-              <div class="absolute w-3 h-3 bg-sky-500 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-sky-600"></div>
-              <time class="mb-1 text-sm font-normal leading-none text-gray-600 dark:text-gray-300">Marzo 2021 - Actualmente...</time>
-              <h4 class="text-2xl font-semibold text-sky-500 dark:text-sky-600 mb-2">Freelancer Developer</h4>
-              <h4 class="text-lg font-semibold text-gray-900 dark:text-gray-300">Freelance</h4>
-              <p class="text-base font-normal text-gray-500 dark:text-gray-400">Realizo proyectos en modalidad freelance y siempre estoy disponible para llevar a cabo el desarrollo de nuevas ideas.</p>
-            </li>
-            <li class="ms-4">
-              <div class="absolute w-3 h-3 bg-sky-400 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-sky-500 animate-ping animate-delay-[750ms]"></div>
-              <div class="absolute w-3 h-3 bg-sky-500 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-sky-600"></div>
-              <time class="mb-1 text-sm font-normal leading-none text-gray-600 dark:text-gray-300">Junio 2019 - Marzo 2022</time>
-              <h4 class="text-2xl font-semibold text-sky-500 dark:text-sky-600 mb-2">Técnico en seguridad electrónica</h4>
-              <h4 class="text-lg font-semibold text-gray-900 dark:text-gray-300">Térgyca</h4>
-              <p class="text-base font-normal text-gray-500 dark:text-gray-400">Encargado del mantenimiento, instalación y/o reparación  de equipos en seguridad electrónica.</p>
-            </li>
-            <li class="ms-4 h-8"></li>
-          </ol>
+          <Experience />
         </section>
 
         <section class="w-10/12 mx-auto container">
@@ -157,26 +76,4 @@ import V_svg from "../components/v-svg.vue";
 
 <script type="module">
   import '../../node_modules/flowbite/dist/flowbite';
-
-  const play_numbers = (experience, element) => {
-    const exp = experience;
-    const exp_string = document.getElementById(element);
-    let i = 0;
-
-    function incrementNumber() {
-      if (i <= exp) {
-        exp_string.innerHTML = i;
-        i++;
-        setTimeout(incrementNumber, 100 /* / (i / 100) */);
-      }
-
-      if (i === exp)
-        exp_string.classList.add('animate-jump')
-    }
-
-    incrementNumber();
-  }
-
-play_numbers(3, 'experience');
-play_numbers(8, 'projects');
 </script>

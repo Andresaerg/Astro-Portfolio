@@ -1,0 +1,68 @@
+---
+const EXPERIENCE = 3;
+const PROJECTS = 8;
+---
+<div class="flex flex-col justify-around md:flex-row">
+    <div class="flex items-center gap-x-2">
+      <h2 id="experience">{EXPERIENCE}</h2>
+      <div class="flex flex-col">
+        <span>AÑOS DE</span>
+        <span>EXPERIENCIA</span>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-x-2">
+      <h2 id="projects">{PROJECTS}</h2>
+      <div class="flex flex-col">
+        <span>PROYECTOS COMPLETADOS</span>
+        <span>ALREDEDOR DEL MUNDO</span>
+      </div>
+    </div>
+
+    <div class="flex justify-around items-center gap-x-8">
+      <img src="https://astro.build/assets/press/astro-logo-light-gradient.svg" class="w-36" alt="item1">
+      <img src="https://tailwindcss.com/_next/static/media/tailwindcss-logotype-white.944c5d0ef628083bb316f9b3d643385c86bcdb3d.svg" class="w-36" alt="item2">
+      <img src="https://flowbite.s3.amazonaws.com/brand/logo-dark/type/flowbite-logo.png" class="w-36" alt="item3">
+    </div>
+  </div>
+
+<script>
+const play_numbers = (experience, element) => {
+    const exp = experience;
+    const exp_string = document.getElementById(element);
+    let i = 0;
+
+    function incrementNumber() {
+        if (i <= exp) {
+            exp_string.innerHTML = i;
+            i++;
+            setTimeout(incrementNumber, 100 /* / (i / 100) */);
+        }
+
+        if (i === exp)
+            exp_string.classList.add('animate-jump')
+    }
+
+    incrementNumber();
+}
+
+play_numbers(3, 'experience');
+play_numbers(8, 'projects');
+</script>
+
+<style>
+    h1{
+        font-size: 5rem;
+        font-weight: bold;
+    }
+
+    h2{
+        font-size: 4rem;
+        font-weight: bold;
+    }
+
+    h3{
+        font-size: 2rem;
+        font-weight: bold;
+    }
+</style>

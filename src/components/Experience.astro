@@ -1,0 +1,61 @@
+---
+import Item from "./ExperienceItems.astro";
+import V_svg from "./v-svg.vue";
+const EXPERIENCE = [
+    {
+        title: "Principal Software Engineer",
+        company: "Super Videomania",
+        description: "Responsable de analizar, diseñar y desarrollar la arquitectura, bases de datos y lógica para la producción de software y nuevas funcionalidades en los módulos ya existentes.",
+        date: "Abril 2022 - Actualmente...",
+        animationTime: "250ms"
+    },
+    {
+        title: "Freelancer Developer",
+        company: "Freelancer",
+        description: "Realizo proyectos en modalidad freelance y siempre estoy disponible para llevar a cabo el desarrollo de nuevas ideas.",
+        date: "Marzo 2021 - Actualmente...",
+        animationTime: "500ms"
+    }
+    ,
+    {
+        title: "Técnico en seguridad electrónica",
+        company: "Térgyca",
+        description: "Encargado del mantenimiento, instalación y/o reparación  de equipos en seguridad electrónica.",
+        date: "Junio 2019 - Marzo 2022",
+        animationTime: "750ms"
+    }
+]
+---
+<h3 class="flex gap-x-6 items-center mb-8">
+    <span>
+      <V_svg name="Suitcase"/>
+    </span>
+    Experiencia laboral
+</h3>
+    <ol class="relative border-s border-gray-200 dark:border-gray-700">                  
+        {
+            EXPERIENCE.map(experience => (
+                <li class="mb-10 ms-4">
+                    <Item {...experience} />
+                </li>
+            ))
+        }
+        <li class="ms-4 h-2"></li>
+    </ol>
+
+<style>
+  h1{
+      font-size: 5rem;
+      font-weight: bold;
+  }
+
+  h2{
+      font-size: 4rem;
+      font-weight: bold;
+  }
+
+  h3{
+      font-size: 2rem;
+      font-weight: bold;
+  }
+</style>
