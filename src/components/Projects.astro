@@ -1,0 +1,51 @@
+---
+import Card from './ProjectCard.astro';
+---
+<div class="grid grid-cols-2 grid-rows-1 gap-x-12">
+  <div class="flex flex-col gap-y-8">
+    <Card id="atenas" src="https://placehold.co/200" options="" title="Atenas Gym - Desktop App" />
+    <Card id="svm" src="https://placehold.co/200" options="" title="Super Videomania - Online Booking Module" />
+  </div>
+  
+  <div id="atenas" class="bg-red-700">
+    <div class="bg-green-700">
+        <h3>Contenido de atenas gym</h3>
+    </div>
+  </div>
+  <div id="svm" class="bg-blue-700 hidden">
+    <h3>Contenido de super videomania</h3>
+  </div>
+  <!-- <div class="flex gap-x-8">
+    <Card src="https://placehold.co/400" options="w-full" href="https://arcodev.surge.sh/index.html" title="Atenas Gym App" body="Aplicación de escritorio realizada con Windows Presentation Foundation bajo el patrón de diseño MVVM con C# y algunas librerías. Permite llevar el control de acceso y solvencia de los clientes."/>
+    <Card src="https://placehold.co/400" options="w-full" href="https://arcodev.surge.sh/index.html" title="Super Videomania - Online Booking Module" body="Módulo creado en una web ya existente, fue desarrollado mediante PHP y JavaScript vanilla además de algunas librerías. Su función es permitir a los usuarios online crear reservaciones y llevar el control de las mismas."/>
+  </div> -->
+</div>
+
+<script>
+    let currentVisible = 'atenas';
+
+    const show_data = (selected) => {
+        console.log(currentVisible)
+        console.log(selected)
+        
+        if (currentVisible && currentVisible != selected) {
+            console.log('Se agrega el hidden')
+            document.getElementById(currentVisible).classList.add('hidden');
+        }
+        
+        if (currentVisible === selected) {
+            currentVisible = selected;
+            return;
+        }
+
+        const element = document.getElementById(selected);
+        element.classList.remove('hidden');
+        currentVisible = selected;
+    }
+
+    document.querySelectorAll('.link-card').forEach(e => e.addEventListener('click', 
+        function(){
+            show_data(this.dataset.label)
+        })
+    );
+</script>
