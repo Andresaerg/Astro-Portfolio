@@ -9,7 +9,7 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="dark font-anta"> <!-- class="bg-[#FBFBFE] dark:bg-[#192229]"> -->
+<html lang="en" class="dark font-anta">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description">
@@ -31,8 +31,12 @@ const { title } = Astro.props;
 			<slot />
 	</body>
 </html>
+
 <style is:global>
 	@import '../../node_modules/flowbite/dist/flowbite.css';
+	@import 'tailwindcss/base';
+	@import 'tailwindcss/components';
+	@import 'tailwindcss/utilities';
 
 	:root {
 		color-scheme: light dark;
@@ -41,14 +45,9 @@ const { title } = Astro.props;
 		--accent-dark: 49, 10, 101;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
 	}
-	/* * {
-		@apply transition-colors duration-100;
-	} */
 	
 	html {
-		/* font-family: system-ui, sans-serif; */
-		/* background: #13151A; */
-		/* background-size: 224px; */
+		scroll-behavior: smooth;
 	}
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,

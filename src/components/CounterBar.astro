@@ -3,30 +3,46 @@ const TOTAL_EXPERIENCE = 5;
 const EXPERIENCE = 3;
 const PROJECTS = 8;
 ---
-<div class="flex flex-col justify-around md:flex-row">
-  <div class="flex items-center gap-x-2">
-    <span class="text-5xl">+</span>
-    <h2 id="total_experience">{TOTAL_EXPERIENCE}</h2>
-    <div class="flex flex-col">
-      <span>AÑOS DE</span>
-      <span>EXPERIENCIA</span>
+<div class="flex flex-col items-center md:justify-around md:flex-row">
+  <div class="flex flex-row items-center gap-x-2">
+    <div class="flex items-center flex-col mt-4 md:flex-row md:gap-x-2 md:mt-0">
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-wrench-adjustable-circle" viewBox="0 0 16 16">
+        <path d="M12.496 8a4.5 4.5 0 0 1-1.703 3.526L9.497 8.5l2.959-1.11q.04.3.04.61"/>
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-1 0a7 7 0 1 0-13.202 3.249l1.988-1.657a4.5 4.5 0 0 1 7.537-4.623L7.497 6.5l1 2.5 1.333 3.11c-.56.251-1.18.39-1.833.39a4.5 4.5 0 0 1-1.592-.29L4.747 14.2A7 7 0 0 0 15 8m-8.295.139a.25.25 0 0 0-.288-.376l-1.5.5.159.474.808-.27-.595.894a.25.25 0 0 0 .287.376l.808-.27-.595.894a.25.25 0 0 0 .287.376l1.5-.5-.159-.474-.808.27.596-.894a.25.25 0 0 0-.288-.376l-.808.27z"/>
+      </svg> -->
+      <div class="flex items-center gap-2">
+        <span class="text-5xl">+</span>
+        <h2 id="total_experience">{TOTAL_EXPERIENCE}</h2>
+        <div class="flex flex-col sm:justify-center">
+          <span>AÑOS DE</span>
+          <span>EXPERIENCIA</span>
+        </div>
+      </div>
     </div>
   </div>
   <div class="flex items-center gap-x-2">
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
+      <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0"/>
+    </svg> -->
     <span class="text-5xl">+</span>
     <h2 id="experience">{EXPERIENCE}</h2>
     <div class="flex flex-col">
-      <span>AÑOS DE</span>
-      <span>EN EL ÁREA</span>
+      <span>AÑOS EN</span>
+      <span>EL ÁREA</span>
     </div>
   </div>
 
   <div class="flex items-center gap-x-2">
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+      <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"/>
+      <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+    </svg> -->
     <span class="text-5xl">+</span>
     <h2 id="projects">{PROJECTS}</h2>
     <div class="flex flex-col">
-      <span>PROYECTOS COMPLETADOS</span>
-      <span>ALREDEDOR DEL MUNDO</span>
+      <span>PROYECTOS</span>
+      <span>REALIZADOS</span>
+      <!-- <span>ALREDEDOR DEL MUNDO</span> -->
     </div>
   </div>
 

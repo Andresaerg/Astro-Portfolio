@@ -1,0 +1,38 @@
+---
+import SwiperBar from "./SwiperBar.astro";
+
+const personalImageAlt = "Andrés Rosales"
+---
+
+<article class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row">
+
+    <img width="200" height="200" src="/images/me.jpg" alt={personalImageAlt} class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20 " style="object-position: 50% 50%">
+
+    <div
+        class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-1 md:order-2"
+    >
+
+        <p>
+            Me llamo Andrés Rosales. Empecé a fondo en la programación a mis 17 años, 
+            cuando empezaba en la carrera de ingeniería en informática sin siquiera tener ordenador. 
+            Actualmente soy <strong>Ingeniero</strong> y estoy <strong>desarrollando diversas aplicaciones con proyección a SaaS</strong>.
+        </p>
+
+        <p>
+            He logrado colaborar con diversas personas y emprendedores para brindar soluciones 
+            <strong>eficientes</strong> que permiten <strong>volver más simple, rápido y seguro</strong>
+            el flujo de trabajo de algunas <strong>PYMES</strong> y toda aquella persona que lo necesite.
+        </p>
+
+        <!-- <p>
+            Como ingeniero en informática y desarrollador de software, cuento con muchas
+            <strong>ideas y entusiasmo</strong> para realizar distintas soluciones enfocadas
+            principalmente en los <strong>emprendimientos más chicos</strong>.
+        </p> -->
+    </div>
+
+</article>
+
+<div class="flex flex-row">
+    <SwiperBar />
+</div>

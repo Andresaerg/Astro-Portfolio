@@ -13,6 +13,7 @@ import SunIcon from './icons/Sun.astro';
 
 <div id="tooltip-toggle" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
     <!-- Se actualiza en el script -->
+    <span id="tooltip-toggle-text"></span>
     <div class="tooltip-arrow" data-popper-arrow></div>
 </div>
 
@@ -55,7 +56,7 @@ import SunIcon from './icons/Sun.astro';
 
     // Actualizar el texto del tooltip
     function updateTooltip(theme) {
-        const tooltip = document.getElementById('tooltip-toggle');
+        const tooltip = document.getElementById('tooltip-toggle-text');
         tooltip.textContent = theme === DARK_THEME ? 'Usar modo claro' : 'Usar modo oscuro';
     }
 
