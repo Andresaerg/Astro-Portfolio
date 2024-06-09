@@ -6,10 +6,10 @@ const personalImageAlt = "Andrés Rosales"
 
 <article class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row">
 
-    <img width="200" height="200" src="/images/me.jpg" alt={personalImageAlt} class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20 " style="object-position: 50% 50%">
+    <img width="200" height="200" src="/images/me.jpg" alt={personalImageAlt} class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-full bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20 " style="object-position: 50% 50%">
 
     <div
-        class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-1 md:order-2"
+        class="[&>p]:mb-4 [&>p>strong]:text-sky-500 dark:[&>p>strong]:text-sky-300 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-1 md:order-2"
     >
 
         <p>
@@ -24,6 +24,18 @@ const personalImageAlt = "Andrés Rosales"
             el flujo de trabajo de algunas <strong>PYMES</strong> y toda aquella persona que lo necesite.
         </p>
 
+        <a href="https://www.linkedin.com/in/andr%C3%A9s-rosales-21423125b/" 
+            class="max-w-fit flex justify-center items-center relative">
+
+            <div
+                class="absolute -inset-1 bg-gradient-to-r from-sky-600 to-violet-600 rounded-full blur animate-pulse opacity-25 transition duration-1000">
+            </div>
+
+            <button type="button" class="relative py-2.5 px-5 me-2 /*mb-2*/ text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                Disponible para trabajar
+            </button>
+
+        </a>
         <!-- <p>
             Como ingeniero en informática y desarrollador de software, cuento con muchas
             <strong>ideas y entusiasmo</strong> para realizar distintas soluciones enfocadas

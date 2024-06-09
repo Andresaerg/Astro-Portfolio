@@ -8,7 +8,17 @@ module.exports = {
 		fontFamily: {
 			'anta' : ["Anta", "sans-serif"]
 		},
-		extend: {},
+		extend: {
+			animation: {
+				'border-animation': 'border-animation 2s linear infinite',
+			},
+			keyframes: {
+				'border-animation': {
+					'0%': { 'background-position': '0%' },
+					'100%': { 'background-position': '400%' },
+				},
+			}
+		},
 	},
 	plugins: [
 		require('flowbite/plugin'),
