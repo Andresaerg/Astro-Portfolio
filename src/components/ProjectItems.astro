@@ -1,6 +1,7 @@
 ---
 import ButtonModel from './buttons/button-model.astro'
 import Badge from "./badges/techs_badges.astro";
+import { Image } from 'astro:assets';
 
 interface Props {
     category: string,
@@ -28,7 +29,7 @@ const { category, title, body, image_src, buttons, badges, isReversed} = Astro.p
 		</ol>
 
 		<!-- Aqui iria las pildoras/badges -->
-		<ol>
+		<ol class="leading-8">
 			{badges.map(badge => (
 					<Badge label={ badge.for } />
 			))}
@@ -45,7 +46,7 @@ const { category, title, body, image_src, buttons, badges, isReversed} = Astro.p
 					<div class="hidden duration-700 ease-in-out " data-carousel-item>
 						<!--img class={`h-auto w-full rounded-lg block object-contain`} src={src} alt={`image_${index}`} /-->
 						<a href={src} target="_blank" rel="noopener noreferrer">
-							<img src={src} class="absolute block rounded-lg w-full md:w-10/12 h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt={`image_${index}`} />
+							<Image src={src} width={100} height={100} loading="eager" class="absolute block rounded-lg w-full md:w-10/12 h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt={`image_${index}`} />
 						</a>
 					</div>
 				))}
@@ -54,7 +55,7 @@ const { category, title, body, image_src, buttons, badges, isReversed} = Astro.p
 			<div class="flex justify-center items-center pt-4 gap-x-4">
 				{image_src.map((src, index) => (
 					<div class="w-24">
-						<img class="max-w-24 rounded-lg cursor-pointer" src={src} alt="" aria-current={index === 0 ? true : false} aria-label={`Slide ${index}`} data-carousel-slide-to={index} />
+						<Image width={100} loading='eager' height={100} class="max-w-24 rounded-lg cursor-pointer" src={src} alt="" aria-current={index === 0 ? true : false} aria-label={`Slide ${index}`} data-carousel-slide-to={index} />
 					</div>
 				))}
 			</div>

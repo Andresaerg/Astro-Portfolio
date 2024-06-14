@@ -73,7 +73,7 @@ import SunIcon from './icons/Sun.astro';
         outline: none;
         box-shadow: none;
         background: transparent;
-        color: rgb(243 244 246);
+        /* color: rgb(243 244 246); */
         animation: svg-animation 10s linear both;
         animation-timeline: scroll();
         animation-range: 0 100px;
@@ -81,7 +81,7 @@ import SunIcon from './icons/Sun.astro';
 
     @keyframes svg-animation{
         to {
-            @apply text-gray-100 bg-transparent;
+            @apply /* text-gray-100 */ bg-transparent;
         }
     }
 </style>

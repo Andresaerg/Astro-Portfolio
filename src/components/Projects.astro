@@ -68,7 +68,7 @@ const PROJECTS = [
     },
     {
         category: 'Frontend',
-        title: 'Arcodev First Portfolio',
+        title: 'My First Portfolio',
         body: ` Mi primer portafolio y proyecto realizado únicamente enfocado en el frontend,
                 utilizando tecnologías puras como HTML, CSS y JS. Pude implementar el envio de
                 correos electrónicos mediante EmailJS, herramienta con la cual además me encargo
@@ -81,7 +81,7 @@ const PROJECTS = [
         ],
         buttons: [
             {label: 'Ver repositorio', icon: 'Github', href: 'https://github.com/Andresaerg/Portfolio'},
-            {label: 'Ver mi antiguo portfolio', icon: 'View', href: 'https://arcodev.surge.sh/'},
+            {label: 'Ver sitio', icon: 'View', href: 'https://arcodev.surge.sh/'},
         ],
         badges: [
             {for: 'HTML'},
@@ -196,7 +196,15 @@ const PROJECTS = [
 ---
 <div>
 
-    <div class="/*mb-4*/ border-b border-gray-200 dark:border-gray-700">
+    <!-- Spinner section -->
+    <div role="status" id="status" class="flex justify-center items-center pt-8">
+        <div class="w-10/12 md:w-2/6 px-6 py-2 text-3xl font-medium leading-none text-center text-blue-800 bg-blue-200 rounded-full animate-pulse dark:bg-blue-900 dark:text-blue-200">
+            Cargando...
+        </div>
+        <span class="sr-only">Cargando...</span>
+    </div>
+
+    <div id="tabs" class="hidden /*mb-4*/ border-b border-gray-200 dark:border-gray-700">
         <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
             <li class="me-2" role="presentation">
                 <button class="inline-block p-4 border-b-2 rounded-t-lg" id="recent-tab" data-tabs-target="#recent" type="button" role="tab" aria-controls="recent" aria-selected="false">Recientes</button>
@@ -215,8 +223,10 @@ const PROJECTS = [
             </li>
         </ul>
     </div>
+    
     <div id="default-tab-content">
-        <div class="hidden /*p-4*/ rounded-lg /*bg-gray-50 dark:bg-gray-800*/" id="recent" role="tabpanel" aria-labelledby="recent-tab">
+        <!-- Tabs section -->
+        <div class="hidden /*p-4*/ rounded-lg /*bg-gray-50 dark:bg-gray-800*/" id="recent" aria-labelledby="recent-tab">
             <ol class="relative border-gray-200 dark:border-gray-700">
                 {
                     PROJECTS.slice(0,2).map(project => (
@@ -274,3 +284,13 @@ const PROJECTS = [
     </div>
 
 </div>
+
+<script>
+    const status = document.getElementById('status');
+    const tabs = document.getElementById('tabs');
+
+    window.addEventListener('load', function(){
+        status.classList.toggle('hidden');
+        tabs.classList.toggle('hidden');
+    })
+</script>

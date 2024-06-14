@@ -1,17 +1,15 @@
 <template>
     <div>
-      <button title="button" type="button" :class="{ open: isOpen, rotateClose: !isOpen}" @click="handleClick" class="z-50 relative flex items-center justify-center w-5 h-5">
+      <button title="button" type="button" :class="{ open: isOpen }" @click="handleClick" class="z-50 relative flex items-center justify-center w-5 h-5">
         <span class="base">{{ isOpen ? '' : label }}</span>
       </button>
 
   
       <!-- Menú desplegable -->
-      <ul id="test" v-bind:class="{ hidden: !isOpen }" class="fixed inset-0 bg-black bg-opacity-90 backdrop-blur-sm h-screen flex items-center justify-center flex-col">
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Sobre mí</a></li>
-        <li><a href="#">Habilidades</a></li>
-        <li><a href="#">Proyectos</a></li>
-        <li><a href="#">Contacto</a></li>
+      <ul id="test" v-bind:class="{ hidden: !isOpen }" class="fixed inset-0 bg-black bg-opacity-90 backdrop-blur-lg h-screen flex items-center justify-center flex-col">
+        <li><a href="#experiencia" @click="handleClick">Experiencia</a></li>
+        <li><a href="#proyectos" @click="handleClick">Proyectos</a></li>
+        <li><a href="#sobre-mi" @click="handleClick">Sobre mí</a></li>
       </ul>
     </div>
   </template>

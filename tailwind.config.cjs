@@ -6,7 +6,8 @@ module.exports = {
 	],
 	theme: {
 		fontFamily: {
-			'anta' : ["Anta", "sans-serif"]
+			'anta' : ["Anta", "sans-serif"],
+			'sono' : ["Sono", "sans-serif"]
 		},
 		extend: {
 			animation: {
