@@ -36,6 +36,14 @@ import SunIcon from './icons/Sun.astro';
         localStorage.setItem(THEME_KEY, theme);
         const themePreference = getThemePreference();
         document.documentElement.classList[themePreference === DARK_THEME ? "add" : "remove"]('dark');
+
+        // Obtén la referencia al elemento 'link' existente
+        let link = document.querySelector('link[data-theme="sweetalert2"]');
+        if(themePreference === LIGHT_THEME){
+            link.href = '/node_modules/sweetalert2/dist/sweetalert2.min.css';
+        }else{
+            link.href = '../../node_modules/@sweetalert2/theme-dark/dark.min.css';
+        }
     }
 
     // Actualizar el icono
@@ -52,6 +60,15 @@ import SunIcon from './icons/Sun.astro';
         setThemePreference(newTheme);
         updateIcon(newTheme);
         updateTooltip(newTheme);
+
+        // Obtén la referencia al elemento 'link' existente
+        let link = document.querySelector('link[data-theme="sweetalert2"]');
+
+        if(newTheme === LIGHT_THEME){
+            link.href = '/node_modules/sweetalert2/dist/sweetalert2.min.css';
+        }else{
+            link.href = '../../node_modules/@sweetalert2/theme-dark/dark.min.css';
+        }
     }
 
     // Actualizar el texto del tooltip

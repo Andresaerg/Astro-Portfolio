@@ -33,27 +33,33 @@ const PROJECTS = 8;
 
 <script>
 const play_numbers = (experience, element) => {
-    const exp = experience;
-    const exp_string = document.getElementById(element);
     let i = 0;
+    const exp_string = document.getElementById(element);
 
-    function incrementNumber() {
-        if (i <= exp) {
-            exp_string.innerHTML = `${i}`;
+    const intervalId = setInterval(() => {
+        if (i <= experience) {
+            exp_string.textContent = `${i}`;
             i++;
-            setTimeout(incrementNumber, 100 /* / (i / 100) */);
+        } else {
+            exp_string.classList.add('animate-jump');
+            clearInterval(intervalId);
         }
-
-        if (i === exp)
-            exp_string.classList.add('animate-jump')
-    }
-
-    incrementNumber();
+    }, 100);
 }
 
-play_numbers(5, 'total_experience')
-play_numbers(3, 'experience');
+const subtractYears = (actualDate, dateToSubtract) => {
+    return actualDate.getFullYear() - dateToSubtract;
+}
+
+const dateNow = new Date();
+
+const totalExp = subtractYears(dateNow, 2019);
+const areaExp = subtractYears(dateNow, 2021);
+
+play_numbers(totalExp, 'total_experience');
+play_numbers(areaExp, 'experience');
 play_numbers(8, 'projects');
+
 </script>
 
 <style>
