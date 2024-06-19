@@ -68,6 +68,16 @@ const my_number = '+58 4246155748';
                 Mensaje
             </label>
         </div>
+        <noscript>
+            <style>
+                #send_button {
+                    display: none; /* Oculta el botón de envío si JavaScript está desactivado */
+                }
+            </style>
+            <div class="noscript-message">
+                Por favor, activa JavaScript para enviar el mensaje.
+            </div>
+        </noscript>
         <input type="submit" id="send_button" value="Enviar" class="w-full hover:cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto md:w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 disabled:cursor-progress dark:disabled:bg-blue-400/50 disabled:bg-blue-500/50" />
     </form>
 

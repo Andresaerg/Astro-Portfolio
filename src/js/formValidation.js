@@ -1,7 +1,5 @@
 import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
-//import 'sweetalert2/dist/sweetalert2.min.css';
-//import '@sweetalert2/theme-dark/dark.css';
 
 const btn = document.getElementById('send_button');
 const user_name = document.getElementById('floating_name');
@@ -10,6 +8,19 @@ const company = document.getElementById('floating_company');
 const message = document.getElementById('floating_message');
 const serviceID = 'default_service';
 const templateID = 'template_i02kfup';
+
+document.querySelectorAll('form input:required, form textarea:required').forEach(input => {
+    input.addEventListener('invalid', function() {
+        this.classList.add('border-red-600', 'focus:border-red-600', 'dark:border-red-600','dark:focus:border-red-600');
+    });
+
+    input.addEventListener('input', function() {
+        if (this.checkValidity()) {
+            this.classList.remove('border-red-600', 'focus:border-red-600', 'dark:border-red-600','dark:focus:border-red-600');
+        }
+    });
+});
+
 
 document.getElementById('form')
 .addEventListener('submit', function(event) {
@@ -60,3 +71,9 @@ document.getElementById('form')
     });
 
 })
+
+const validateEmail = (email) => {
+    return email.match(
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+};

@@ -1,0 +1,98 @@
+---
+import Translation from './icons/Translation.astro';
+---
+
+<button id="language" data-tooltip-target="language-toggle" type="button" class="text-gray-500 inline-flex items-center justify-center dark:text-gray-400 hover:bg-gray-100 w-10 h-10 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"> <!-- class="relative group text-white bg-transparent font-medium rounded-lg text-sm focus:outline-none"> -->
+
+    <span class="sr-only">Elige el lenguaje </span>
+    <Translation class="w-10 h-10 text-gray-800 dark:text-white" />
+    
+</button>
+
+<div id="language-toggle" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+    <span id="tooltip-toggle-text">Cambiar idioma</span>
+    <div class="tooltip-arrow" data-popper-arrow></div>
+</div>
+
+<script>
+    import Swal from 'sweetalert2/dist/sweetalert2';
+    
+    const LANG_KEY = 'lang';
+    const ACTUAL_LANG = navigator.language;
+
+    // Manejo de lenguaje
+    document.getElementById('language').addEventListener('click', toggleLang);
+
+    // Obtener el lenguaje principal
+    function getLangPreference()
+    {
+        return localStorage.getItem(LANG_KEY) || (ACTUAL_LANG.includes('en') && window.location.href.includes('/en') ? 'en' : 'es');
+    }
+
+    // Colocar el lenguaje principal
+    function setLangPreference(lang)
+    {
+        localStorage.setItem(LANG_KEY, lang);
+        const langPreference = getLangPreference();
+        langPreference.includes('en') ? window.location.href = '/en' : window.location.href = '/'
+    }
+
+    function toggleLang() 
+    {
+        const currentLang = getLangPreference();
+        const newLang = currentLang.includes('en') && window.location.href.includes('/en') ? 'es' : 'en';
+        setLangPreference(newLang);
+    }
+
+    window.onload = () => {
+        const myLangPref = getLangPreference();
+
+        if(myLangPref.includes('en') && !window.location.href.includes('/en')){
+            Swal.fire({
+                title: 'Language preference',
+                text: 'It has been detected that your language preference is English. Do you want to change to the English version?',
+                icon: 'question',
+                confirmButtonText: 'Change to english',
+                confirmButtonColor: '#0ea5e9',
+                showCancelButton: true,
+                cancelButtonText: 'Stay here',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/en';
+                }
+            });
+        }
+
+        if(myLangPref.includes('es') && window.location.href.includes('/en')){
+            Swal.fire({
+                title: 'Preferencia de lenguaje',
+                text: 'Se ha detectado que su preferencia de idioma es español, ¿Desea cambiar a la versión en español?',
+                icon: 'question',
+                confirmButtonText: 'Cambiar a español',
+                showCancelButton: true,
+                cancelButtonText: 'Permanecer acá',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/';
+                }
+            });
+        }
+    }
+</script>
+
+<style>
+    #language.scroll:focus, #language.scroll:hover, #language.scroll svg {
+        outline: none;
+        box-shadow: none;
+        background: transparent;
+        animation: svg-animation 10s linear both;
+        animation-timeline: scroll();
+        animation-range: 0 100px;
+    }
+
+    @keyframes svg-animation{
+        to {
+            @apply bg-transparent;
+        }
+    }
+</style>

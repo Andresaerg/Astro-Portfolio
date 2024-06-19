@@ -1,0 +1,74 @@
+---
+interface Props {
+    lang: string,
+    section: string
+}
+
+const { lang, section } = Astro.props;
+
+const navItems = {
+    'es': [
+            {
+                title: "Experiencia",
+                url: "/#experiencia",
+            },
+            {
+                title: "Proyectos",
+                url: "/#proyectos",
+            },
+            {
+                title: "Sobre mí",
+                url: "/#sobre-mi",
+            },
+        ],
+    'en': [
+            {
+                title: "Experience",
+                url: "/#experience",
+            },
+            {
+                title: "Projects",
+                url: "/#projects",
+            },
+            {
+                title: "About me",
+                url: "/#about-me",
+            },
+        ],
+}
+
+const sectionHandler = {
+    'header': 'header',
+    'footer': 'footer',
+}
+
+const optionsComponent = lang === 'es' ? navItems.es : navItems.en;
+const sectionComponent = sectionHandler[section];
+---
+
+{
+    sectionComponent === 'header' ?
+        <ul class="hidden md:flex flex-row gap-x-4 text-sm font-semibold">
+            { 
+                optionsComponent.map(item => (
+                    <li>
+                        <a href={ item.url } class="hover:text-sky-500 transition">
+                            { item.title }
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    :
+        <ul class="flex flex-row gap-x-4 text-sm">
+            {
+                optionsComponent.map(item => (
+                    <li>
+                        <a href={ item.url }>
+                            { item.title }
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+}

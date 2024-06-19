@@ -1,0 +1,72 @@
+---
+import Item from "./ExperienceItems.astro";
+import V_svg from "../v-svg.vue";
+const EXPERIENCE = [
+    {
+        title: "Freelancer Developer",
+        company: "Freelancer",
+        description: "I carry out projects on a freelance basis and I am always available to carry out the development of new ideas.",
+        date: "March 2021 - At the moment...",
+        animationTime: "1250ms"
+    }
+    ,
+    {
+        title: "Principal Software Engineer",
+        company: "Super Videomania",
+        description: "Responsible for analyzing, designing and developing the architecture, databases and logic for the production of software and new functionalities in existing modules.",
+        date: "April 2022 - April 2024",
+        animationTime: "500ms"
+    },
+    {
+        title: "Electronic Security Technician",
+        company: "Térgyca",
+        description: "Responsible for the maintenance, installation and/or repair of electronic security equipment.",
+        date: "June 2019 - March 2022",
+        animationTime: "750ms"
+    }
+]
+---
+<h3 class="flex gap-x-3 md:gap-x-6 items-center mb-8 text-3xl">
+    <span>
+        <!-- <V_svg name="Suitcase"/> -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
+        </svg>
+    </span>
+    Experience
+</h3>
+    <ol class="relative border-s border-gray-200 dark:border-gray-700">                  
+        {
+            EXPERIENCE.map(experience => (
+                <li class="mb-10 ms-4">
+                    <Item {...experience} />
+                </li>
+            ))
+        }
+        <li class="ms-4 h-2"></li>
+    </ol>
+
+<style>
+    .text-gradient {
+		background-image: linear-gradient(90deg, rgb(2, 175, 200), rgb(15, 165, 235), rgb(100, 230, 250));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+    }
+/* 
+    h1{
+        font-size: 5rem;
+        font-weight: bold;
+    }
+
+    h2{
+        font-size: 4rem;
+        font-weight: bold;
+    }
+
+    h3{
+        font-size: 2rem;
+        font-weight: bold;
+    } */
+</style>

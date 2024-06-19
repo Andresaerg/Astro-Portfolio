@@ -1,6 +1,6 @@
 ---
-import ButtonModel from './buttons/button-model.astro'
-import Badge from "./badges/techs_badges.astro";
+import ButtonModel from '../buttons/button-model.astro'
+import Badge from "../badges/techs_badges.astro";
 import { Image } from 'astro:assets';
 
 interface Props {
@@ -31,7 +31,7 @@ const { category, title, body, image_src, buttons, badges, isReversed} = Astro.p
 		<!-- Aqui iria las pildoras/badges -->
 		<ol class="leading-8">
 			{badges.map(badge => (
-				<Badge label={ badge.for } />
+					<Badge label={ badge.for } />
 			))}
 		</ol>
 	</div>
