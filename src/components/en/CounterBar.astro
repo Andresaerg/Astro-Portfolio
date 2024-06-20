@@ -1,0 +1,80 @@
+---
+const TOTAL_EXPERIENCE = 5;
+const EXPERIENCE = 3;
+const PROJECTS = 8;
+---
+<div class="flex flex-row items-center justify-around">
+  <div class="flex items-center gap-x-1 md:gap-x-2">
+    <span class="text-2xl md:text-5xl">+</span>
+    <h2 id="total_experience">{TOTAL_EXPERIENCE}</h2>
+    <div class="flex flex-col title">
+      <span>YEARS OF</span>
+      <span>EXPERIENCE</span>
+    </div>
+  </div>
+  <div class="flex items-center gap-x-1 md:gap-x-2">
+    <span class="text-2xl md:text-5xl">+</span>
+    <h2 id="areaExperience">{EXPERIENCE}</h2>
+    <div class="flex flex-col title">
+      <span>YEARS IN</span>
+      <span>THE AREA</span>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-x-1 md:gap-x-2">
+    <span class="text-2xl md:text-5xl">+</span>
+    <h2 id="totalProjects">{PROJECTS}</h2>
+    <div class="flex flex-col title">
+      <span>PROJECTS</span>
+      <span>COMPLETED</span>
+    </div>
+  </div>
+</div>
+
+<script>
+const play_numbers = (experience, element) => {
+    let i = 0;
+    const exp_string = document.getElementById(element);
+
+    const intervalId = setInterval(() => {
+        if (i <= experience) {
+            exp_string.textContent = `${i}`;
+            i++;
+        } else {
+            exp_string.classList.add('animate-jump');
+            clearInterval(intervalId);
+        }
+    }, 100);
+}
+
+const subtractYears = (actualDate, dateToSubtract) => {
+    return actualDate.getFullYear() - dateToSubtract;
+}
+
+const dateNow = new Date();
+
+const totalExp = subtractYears(dateNow, 2019);
+const areaExp = subtractYears(dateNow, 2021);
+
+play_numbers(totalExp, 'total_experience');
+play_numbers(areaExp, 'areaExperience');
+play_numbers(8, 'totalProjects');
+
+</script>
+
+<style>
+    h2{
+        font-size: 4rem;
+        font-weight: bold;
+    }
+
+    @media (max-width: 678px) {
+      h2{
+        font-size: 2rem;
+      }
+
+      .title{
+        font-size: 10px;
+      }
+    }
+</style>

@@ -1,0 +1,64 @@
+---
+import ButtonModel from './buttons/button-model.astro'
+import Badge from "./badges/techs_badges.astro";
+import { Image } from 'astro:assets';
+
+interface Props {
+    category: string,
+	title: string,
+	body: string,
+	image_src: Array<string>,
+	buttons?: Array<{label: string, icon: string, href: string}>,
+	badges?: Array<{for: string,}>,
+	isReversed: boolean,
+}
+
+const { category, title, body, image_src, buttons, badges, isReversed} = Astro.props;
+---
+
+<div class=`md:pl-6 flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} gap-y-6 md:gap-y-0 md:gap-x-8 md:justify-around`>
+    <div class="flex flex-col gap-y-4 max-w-lg">
+		<b class="uppercase text-sky-500 dark:text-sky-600">{ category }</b>
+		<h1 class="text-2xl">{ title }</h1>
+		<p>{ body }</p>
+		<!-- Aqui iria los buttons -->
+		<ol class="mt-4">
+			{buttons.map(btn => (
+				<ButtonModel label={btn.label} icon={btn.icon} href={btn.href}/>
+			))}
+		</ol>
+
+		<!-- Aqui iria las pildoras/badges -->
+		<ol class="leading-8">
+			{badges.map(badge => (
+				<Badge label={ badge.for } />
+			))}
+		</ol>
+	</div>
+
+	<div class="w-full">
+
+		<div id="custom-controls-gallery" class="relative w-full" data-carousel="static">
+			<!-- Carousel wrapper -->
+			<div class="relative h-56 overflow-hidden rounded-lg md:h-[17.5rem]">
+
+				{image_src.map((src, index) => (
+					<div class="hidden duration-700 ease-in-out " data-carousel-item>
+						<a href={src} target="_blank" rel="noopener noreferrer">
+							<Image src={src} width={100} height={100} loading="eager" class="absolute block rounded-lg w-full md:w-10/12 h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt={`image_${index}`} />
+						</a>
+					</div>
+				))}
+
+			</div>
+			<div class="flex justify-center items-center pt-4 gap-x-4">
+				{image_src.map((src, index) => (
+					<div class="w-24">
+						<Image width={100} loading='eager' height={100} class="max-w-24 rounded-lg cursor-pointer" src={src} alt="" aria-current={index === 0 ? true : false} aria-label={`Slide ${index}`} data-carousel-slide-to={index} />
+					</div>
+				))}
+			</div>
+		</div>
+		
+	</div>
+</div>

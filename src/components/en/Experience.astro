@@ -1,0 +1,54 @@
+---
+import Item from "../ExperienceItems.astro";
+import Chart from '../icons/Experience.astro';
+const EXPERIENCE = [
+    {
+        title: "Freelancer Developer",
+        company: "Freelancer",
+        description: "I carry out projects on a freelance basis and I am always available to carry out the development of new ideas.",
+        date: "March 2021 - At the moment...",
+        animationTime: "1250ms"
+    }
+    ,
+    {
+        title: "Principal Software Engineer",
+        company: "Super Videomania",
+        description: "Responsible for analyzing, designing and developing the architecture, databases and logic for the production of software and new functionalities in existing modules.",
+        date: "April 2022 - April 2024",
+        animationTime: "500ms"
+    },
+    {
+        title: "Electronic Security Technician",
+        company: "Térgyca",
+        description: "Responsible for the maintenance, installation and/or repair of electronic security equipment.",
+        date: "June 2019 - March 2022",
+        animationTime: "750ms"
+    }
+]
+---
+<h3 class="flex gap-x-3 md:gap-x-6 items-center mb-8 text-3xl">
+    <span>
+        <Chart class="w-6 h-6" />
+    </span>
+    Experience
+</h3>
+    <ol class="relative border-s border-gray-200 dark:border-gray-700">                  
+        {
+            EXPERIENCE.map(experience => (
+                <li class="mb-10 ms-4">
+                    <Item {...experience} />
+                </li>
+            ))
+        }
+        <li class="ms-4 h-2"></li>
+    </ol>
+
+<style>
+    .text-gradient {
+		background-image: linear-gradient(90deg, rgb(2, 175, 200), rgb(15, 165, 235), rgb(100, 230, 250));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+    }
+</style>

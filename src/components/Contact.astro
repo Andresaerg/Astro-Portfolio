@@ -1,0 +1,50 @@
+---
+import Mail from "./icons/Mail.astro";
+import Phone from "./icons/Phone.astro";
+import Github from "./icons/Github.astro";
+import LinkedIn from "./icons/LinkedIn.astro";
+import Telegram from "./icons/Telegram.astro";
+
+import Form from "./Form.astro";
+
+const my_email = 'arcodev10@gmail.com';
+const my_number = '+58 4246155748';
+---
+<div class="grid grid-rows-2 grid-cols-1 justify-center gap-8 md:grid-rows-1 md:grid-cols-2">
+
+    <div class="[&>h2]:text-3xl md:[&>h2]:text-5xl [&>h2]:mb-8 [&>div]:my-8 [&>a]:my-4 order-2">
+        <h2>¡Es hora de hablar de ti!</h2>
+        <p>
+            ¿Te gustaría trabajar conmigo en tu proyecto y lograr increíbles resultados? No dudes en contactarte conmigo. Resolveré cualquier duda que tengas.
+        </p>
+
+        <div class="w-fit">
+            <a href={`mailto:${my_email}`} class="flex items-center gap-x-6">
+                <Mail class="text-sky-500 w-6 h-6 inline"/>
+                { my_email }
+            </a>
+        </div>
+
+        <div class="w-fit">
+            <a href={`tel:${my_number}`} class="flex items-center gap-x-6">
+                <Phone class="text-sky-500 w-6 h-6 inline"/>
+                { my_number }
+            </a>
+        </div>
+
+        <div class="w-fit flex justify-center items-center gap-x-6">
+            <a href="https://www.linkedin.com/in/andrés-rosales-21423125b/" target="_blank" class="w-10 h-10 flex justify-center items-center gap-x-6 rounded-full bg-slate-100 text-sky-500 hover:text-gray-100 hover:bg-gray-900 transition">
+                <LinkedIn class="w-10 h-10">
+            </a>
+            <a href="https://github.com/Andresaerg" target="_blank" class="w-10 h-10 flex justify-center items-center gap-x-6 rounded-full bg-slate-100 text-sky-500 hover:text-gray-100 hover:bg-gray-900 transition">
+                <Github class="w-9 h-9">
+            </a>
+            <a href="https://telegram.me/arcodev_4" target="_blank" class="w-10 h-10 flex justify-center items-center gap-x-6 rounded-full bg-slate-100 text-sky-500 hover:text-gray-100 hover:bg-gray-900 transition">
+                <Telegram class="w-9 h-9">
+            </a>
+        </div>
+    </div>
+
+    <Form />
+
+</div>

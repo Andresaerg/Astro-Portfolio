@@ -3,7 +3,7 @@ import MoonIcon from './icons/Moon.astro';
 import SunIcon from './icons/Sun.astro';
 ---
 
-<button id="toggle" data-tooltip-target="tooltip-toggle" type="button" class="text-gray-500 inline-flex items-center justify-center dark:text-gray-400 hover:bg-gray-100 w-10 h-10 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"> <!-- class="relative group text-white bg-transparent font-medium rounded-lg text-sm focus:outline-none"> -->
+<button id="toggle" data-tooltip-target="tooltip-toggle" type="button" class="text-gray-500 inline-flex items-center justify-center dark:text-gray-400 hover:bg-gray-100 w-10 h-10 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
 
     <span class="sr-only">Elige el tema</span>
     <MoonIcon id="dark" class="theme-toggler w-5 h-5 text-gray-800 dark:text-white transition ease-in-out delay-100"/>
@@ -13,6 +13,7 @@ import SunIcon from './icons/Sun.astro';
 
 <div id="tooltip-toggle" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
     <!-- Se actualiza en el script -->
+    <span id="tooltip-toggle-text"></span>
     <div class="tooltip-arrow" data-popper-arrow></div>
 </div>
 
@@ -35,6 +36,14 @@ import SunIcon from './icons/Sun.astro';
         localStorage.setItem(THEME_KEY, theme);
         const themePreference = getThemePreference();
         document.documentElement.classList[themePreference === DARK_THEME ? "add" : "remove"]('dark');
+
+        // Obtén la referencia al elemento 'link' existente
+        let link = document.querySelector('link[data-theme="sweetalert2"]');
+        if(themePreference === LIGHT_THEME){
+            link.href = 'https://cdn.jsdelivr.net/npm/@sweetalert2/theme-default@5.0.16/default.min.css';
+        }else{
+            link.href = 'https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5.0.16/dark.min.css';
+        }
     }
 
     // Actualizar el icono
@@ -51,11 +60,20 @@ import SunIcon from './icons/Sun.astro';
         setThemePreference(newTheme);
         updateIcon(newTheme);
         updateTooltip(newTheme);
+
+        // Obtén la referencia al elemento 'link' existente
+        let link = document.querySelector('link[data-theme="sweetalert2"]');
+
+        if(newTheme === LIGHT_THEME){
+            link.href = 'https://cdn.jsdelivr.net/npm/@sweetalert2/theme-default@5.0.16/default.min.css';
+        }else{
+            link.href = 'https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5.0.16/dark.min.css';
+        }
     }
 
     // Actualizar el texto del tooltip
     function updateTooltip(theme) {
-        const tooltip = document.getElementById('tooltip-toggle');
+        const tooltip = document.getElementById('tooltip-toggle-text');
         tooltip.textContent = theme === DARK_THEME ? 'Usar modo claro' : 'Usar modo oscuro';
     }
 
@@ -72,7 +90,6 @@ import SunIcon from './icons/Sun.astro';
         outline: none;
         box-shadow: none;
         background: transparent;
-        color: rgb(243 244 246);
         animation: svg-animation 10s linear both;
         animation-timeline: scroll();
         animation-range: 0 100px;
@@ -80,7 +97,7 @@ import SunIcon from './icons/Sun.astro';
 
     @keyframes svg-animation{
         to {
-            @apply text-gray-100 bg-transparent;
+            @apply bg-transparent;
         }
     }
 </style>

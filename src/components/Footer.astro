@@ -1,0 +1,28 @@
+---
+import Asoft from "./icons/Asoft.astro";
+import Navigation from "./commons/NavigationItems.astro";
+
+interface Props {
+    lang: string,
+}
+
+const { lang } = Astro.props;
+
+const navOptions = [{
+    lang: lang,
+    section: 'footer',
+}]
+
+---
+<footer class="w-full md:w-10/12 mx-auto border-t-2 border-t-sky-500 dark:border-t-sky-600 py-10 flex flex-col gap-y-6 md:flex-row justify-between items-center">
+    <div>
+        <Asoft class="w-28 h-10"/>
+    </div>
+    <div>
+        {
+            navOptions.map(items => (
+                <Navigation {...items}/>
+            ))
+        }
+    </div>
+</footer>

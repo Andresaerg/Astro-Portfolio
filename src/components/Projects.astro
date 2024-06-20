@@ -1,51 +1,309 @@
 ---
-import Card from './ProjectCard.astro';
+import ProjectItems from './ProjectItems.astro';
+
+const PROJECTS = [
+    {
+        category: 'Fullstack',
+        title: 'Asoft-Pymes',
+        body:  `Este proyecto se realizo con el objetivo de llegar a las pequeñas y medianas empresas
+                que, a pesar de tener menos recursos o repercusión en el mercado, igualmente necesitan
+                en su día a día el automatizar varias tareas mediante un sistema como el que se ofrece.
+                El proyecto figurará como un SaaS económico y factible por encima de otras opciones
+                más caras y que requieren más procesos para su implementación.`,
+        image_src: [
+            '/images/asoft/asoft1.png',
+            '/images/asoft/asoft2.png',
+            '/images/asoft/asoft3.png',
+        ],
+        buttons: [],
+        badges: [
+            {for: 'Tailwind'},
+            {for: 'AlpineJS'},
+            {for: 'Livewire'},
+            {for: 'Laravel'},
+            {for: 'Filamentphp'},
+        ],
+        isReversed: false,
+    },
+    {
+        category: 'Fullstack',
+        title: 'Screens-App',
+        body:  `Esta aplicación web permite gestionar de manera sencilla el contenido de múltiples pantallas
+                a lo largo del país. 
+                
+                Funciona como un sistema de señalización digital básico, y tiene la capacidad de
+                para trabajar tanto online como offline.`,
+        image_src: [
+            '/images/screens-app/screens_app1.png',
+            '/images/screens-app/screens_app2.png',
+            '/images/screens-app/screens_app3.png',
+            '/images/screens-app/screens_app4.png',
+        ],
+        buttons: [
+            {label: 'Ver login', icon: 'View', href: 'https://screens-app.supervideomania.net'},
+        ],
+        badges: [
+            {for: 'Tailwind'},
+            {for: 'AlpineJS'},
+            {for: 'Laravel'},
+        ],
+        isReversed: true,
+    },
+    {
+        category: 'Fullstack',
+        title: 'Atenas Gym Desktop App',
+        body: `Proyecto realizado con la intención de integrar un sistema administrativo
+                y de control de acceso para el gimnasio Atenas, el mismo fue realizado con
+                Windows Presentation Foundation y está planeado escalarlo en un futuro para
+                realizarle mayores integraciones para más funcionalidades.`,
+        image_src: [
+            '/images/atenas/atenas1.png',
+            '/images/atenas/atenas2.png',
+        ],
+        buttons: [],
+        badges: [
+            {for: 'C#'},
+        ],
+        isReversed: false,
+    },
+    {
+        category: 'Frontend',
+        title: 'My First Portfolio',
+        body: ` Mi primer portafolio y proyecto realizado únicamente enfocado en el frontend,
+                utilizando tecnologías puras como HTML, CSS y JS. Pude implementar el envio de
+                correos electrónicos mediante EmailJS, herramienta con la cual además me encargo
+                manualmente de validar tanto en el HTML como con JS Vanilla que los campos sean
+                adecuados para su envio, de igual forma usé Surge.sh para alojar el sitio con un
+                'dominio' personalizado.`,
+        image_src: [
+            '/images/old_portfolio/old1.png',
+            '/images/old_portfolio/old3.png',
+        ],
+        buttons: [
+            {label: 'Ver repositorio', icon: 'Github', href: 'https://github.com/Andresaerg/Portfolio'},
+            {label: 'Ver sitio', icon: 'View', href: 'https://arcodev.surge.sh/'},
+        ],
+        badges: [
+            {for: 'HTML'},
+            {for: 'CSS'},
+            {for: 'JS'},
+        ],
+        isReversed: false,
+    },
+    {
+        category: 'Mobile',
+        title: 'Super Videomania Mobile App',
+        body: ` Aplicación móvil realizada con Flutter en Android Studio, la misma se encargaba
+                de consumir la API creada en ASP.NET 6 para poder cumplir con sus funcionalidades
+                tales como, inicio de sesión, registro de nuevos usuarios, verificación de saldo,
+                edición de los datos de usuario, y demás. También contaba con funciones para los
+                usuarios por parte de la empresa en base a la jerarquía y privilegios del usuario.`,
+        image_src: [
+            '/images/svm_app/svm_app1.png',
+            '/images/svm_app/svm_app2.png',
+            '/images/svm_app/svm_app3.png',
+            '/images/svm_app/svm_app4.png',
+        ],
+        buttons: [],
+        badges: [
+            {for: 'Flutter'},
+        ],
+        isReversed: false,
+    },
+    {
+        category: 'Backend',
+        title: 'Super Videomania App Backend API',
+        body: ` API realizada con ASP.NET 6 para obtener los records de una base de datos alojada
+                en la nube de Azure, brindado así la conexión necesaria para la aplicación móvil
+                de la empresa, permitiendo el inicio de sesión, visualización de información,
+                gestión de los datos, saldo y demás.`,
+        image_src: [
+            '/images/svm_appi/APPI.png'
+        ],
+        buttons: [],
+        badges: [
+            {for: 'C#'},
+        ],
+        isReversed: false,
+    },
+    {
+        category: 'Backend',
+        title: 'Certificación en backend con .NET',
+        body: ` Este apartado, más que un proyecto, representa una certificación
+                obtenida en un curso correspondiente al Backend con .NET, el curso
+                fue impartido por Héctor De León, arquitecto de software y backend dev
+                especializado en .NET C#.`,
+        image_src: [
+            '/images/backend_certificate/backend_course.png',
+            '/images/backend_certificate/Certificado.jpg'
+        ],
+        buttons: [
+            {label: 'Ver curso', icon: 'View', href: 'https://www.udemy.com/course/aprende-programacion-backend-en-c-net/?kw=Aprende+programacion+backend&src=sac&couponCode=KEEPLEARNING'},
+        ],
+        badges: [
+            {for: 'C#'},
+        ],
+        isReversed: true,
+    },
+    {
+        category: 'Fullstack',
+        title: 'Super Videomania web',
+        body: `Proyecto enfocado en revivir la web previamente creada por la empresa, se realizó
+                usando la misma estructura y tecnologías, creando la base de datos, implementando 
+                un ecommerce básico, y principalmente desarrollando una sección para sistema de
+                reservación online junto a la generación de reservas por parte de los gerentes 
+                en un formulario administrativo.`,
+        image_src: [
+            '/images/svm_web/SVM1.png',
+            '/images/svm_web/SVM2.png',
+            '/images/svm_web/SVM3.png',
+            '/images/svm_web/SVM4.png',
+        ],
+        buttons: [
+            {label: 'Ver sitio', icon: 'View', href: 'https://supervideomania.net'},
+        ],
+        badges: [
+            {for: 'HTML'},
+            {for: 'CSS'},
+            {for: 'JS'},
+            {for: 'PHP'},
+        ],
+        isReversed: true,
+    },
+    {
+        category: 'Fullstack',
+        title: 'Masersuca: Sistema de gestión de inventario',
+        body: ` Sistema administrativo realizado para la farmacia Masersuca, el sistema 
+                se creó con el objetivo de gestionar el inventario de productos y
+                las ventas en la farmacia, para tener un mayor control de la existencia en stock
+                junto a mayor flexibilidad en el apartado de ventas y facturación, además de
+                permitir importar productos desde libros en excel. Este proyecto se llevó a cabo
+                como parte de mi proyecto de grado para recibirme como ingeniero en informática.`,
+        image_src: [
+            '/images/masersuca/Masersuca1.png',
+            '/images/masersuca/Masersuca2.png',
+        ],
+        buttons: [],
+        badges: [
+            {for: 'HTML'},
+            {for: 'CSS'},
+            {for: 'JS'},
+            {for: 'PHP'},
+        ],
+        isReversed: false,
+    },
+]
 ---
-<div class="grid grid-cols-2 grid-rows-1 gap-x-12">
-  <div class="flex flex-col gap-y-8">
-    <Card id="atenas" src="https://placehold.co/200" options="" title="Atenas Gym - Desktop App" />
-    <Card id="svm" src="https://placehold.co/200" options="" title="Super Videomania - Online Booking Module" />
-  </div>
-  
-  <div id="atenas" class="bg-red-700">
-    <div class="bg-green-700">
-        <h3>Contenido de atenas gym</h3>
+<div>
+
+    <noscript>
+        <style>
+            #status{
+                display: none;
+            }
+        </style>
+        <div class="flex justify-center items-center pt-8">
+            <div class="noscript-message px-6 py-2 text-3xl font-medium leading-none text-center text-blue-800 bg-blue-200 rounded-full animate-pulse dark:bg-blue-900 dark:text-blue-200">
+                Se requiere JavaScript para esta sección
+            </div>
+        </div>
+    </noscript>
+
+    <!-- Loading section -->
+    <div role="status" id="status" class="flex justify-center items-center pt-8">
+        <div class="w-10/12 md:w-2/6 px-6 py-2 text-3xl font-medium leading-none text-center text-blue-800 bg-blue-200 rounded-full animate-pulse dark:bg-blue-900 dark:text-blue-200">
+            Cargando...
+        </div>
+        <span class="sr-only">Cargando...</span>
     </div>
-  </div>
-  <div id="svm" class="bg-blue-700 hidden">
-    <h3>Contenido de super videomania</h3>
-  </div>
-  <!-- <div class="flex gap-x-8">
-    <Card src="https://placehold.co/400" options="w-full" href="https://arcodev.surge.sh/index.html" title="Atenas Gym App" body="Aplicación de escritorio realizada con Windows Presentation Foundation bajo el patrón de diseño MVVM con C# y algunas librerías. Permite llevar el control de acceso y solvencia de los clientes."/>
-    <Card src="https://placehold.co/400" options="w-full" href="https://arcodev.surge.sh/index.html" title="Super Videomania - Online Booking Module" body="Módulo creado en una web ya existente, fue desarrollado mediante PHP y JavaScript vanilla además de algunas librerías. Su función es permitir a los usuarios online crear reservaciones y llevar el control de las mismas."/>
-  </div> -->
+
+    <div id="tabs" class="hidden border-b border-gray-200 dark:border-gray-700">
+        <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
+            <li class="me-2" role="presentation">
+                <button class="inline-block p-4 border-b-2 rounded-t-lg" id="recent-tab" data-tabs-target="#recent" type="button" role="tab" aria-controls="recent" aria-selected="false">Recientes</button>
+            </li>
+            <li class="me-2" role="presentation">
+                <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="full-tab" data-tabs-target="#full" type="button" role="tab" aria-controls="full" aria-selected="false">Fullstack</button>
+            </li>
+            <li class="me-2" role="presentation">
+                <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="back-tab" data-tabs-target="#back" type="button" role="tab" aria-controls="back" aria-selected="false">Backend</button>
+            </li>
+            <li class="me-2" role="presentation">
+                <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="front-tab" data-tabs-target="#front" type="button" role="tab" aria-controls="front" aria-selected="false">Frontend</button>
+            </li>
+            <li class="me-2" role="presentation">
+                <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="mobile-tab" data-tabs-target="#mobile" type="button" role="tab" aria-controls="mobile" aria-selected="false">Mobile</button>
+            </li>
+        </ul>
+    </div>
+    
+    <div id="default-tab-content">
+        <!-- Tabs section -->
+        <div class="hidden rounded-lg" id="recent" aria-labelledby="recent-tab">
+            <ol class="relative border-gray-200 dark:border-gray-700">
+                {
+                    PROJECTS.slice(0,2).map(project => (
+                        <li class="py-12 border-b-2 last:border-b-0 border-gray-700">
+                            <ProjectItems {...project} />
+                        </li>
+                    ))
+                }
+            </ol>
+        </div>
+        <div class="hidden rounded-lg" id="full" role="tabpanel" aria-labelledby="full-tab">
+            <ol class="relative border-gray-200 dark:border-gray-700">
+                {
+                    [...PROJECTS].reverse().filter(project => project.category === 'Fullstack').map(project => (
+                        <li class="py-12 border-b-2 last:border-b-0 border-gray-700">
+                            <ProjectItems {...project} />
+                        </li>
+                    ))
+                }
+            </ol>
+        </div>
+        <div class="hidden rounded-lg" id="back" role="tabpanel" aria-labelledby="back-tab">
+            <ol class="relative border-gray-200 dark:border-gray-700">
+                {
+                    PROJECTS.filter(project => project.category === 'Backend').map(project => (
+                        <li class="py-12 border-b-2 last:border-b-0 border-gray-700">
+                            <ProjectItems {...project} />
+                        </li>
+                    ))
+                }
+            </ol>
+        </div>
+        <div class="hidden rounded-lg" id="front" role="tabpanel" aria-labelledby="front-tab">
+            <ol class="relative border-gray-200 dark:border-gray-700">
+                {
+                    PROJECTS.filter(project => project.category === 'Frontend').map(project => (
+                        <li class="py-12 border-b-2 last:border-b-0 border-gray-700">
+                            <ProjectItems {...project} />
+                        </li>
+                    ))
+                }
+            </ol>
+        </div>
+        <div class="hidden rounded-lg" id="mobile" role="tabpanel" aria-labelledby="mobile-tab">
+            <ol class="relative border-gray-200 dark:border-gray-700">
+                {
+                    PROJECTS.filter(project => project.category === 'Mobile').map(project => (
+                        <li class="py-12 border-b-2 last:border-b-0 border-gray-700">
+                            <ProjectItems {...project} />
+                        </li>
+                    ))
+                }
+            </ol>
+        </div>
+    </div>
+
 </div>
 
 <script>
-    let currentVisible = 'atenas';
+    const status = document.getElementById('status');
+    const tabs = document.getElementById('tabs');
 
-    const show_data = (selected) => {
-        console.log(currentVisible)
-        console.log(selected)
-        
-        if (currentVisible && currentVisible != selected) {
-            console.log('Se agrega el hidden')
-            document.getElementById(currentVisible).classList.add('hidden');
-        }
-        
-        if (currentVisible === selected) {
-            currentVisible = selected;
-            return;
-        }
-
-        const element = document.getElementById(selected);
-        element.classList.remove('hidden');
-        currentVisible = selected;
-    }
-
-    document.querySelectorAll('.link-card').forEach(e => e.addEventListener('click', 
-        function(){
-            show_data(this.dataset.label)
-        })
-    );
+    window.addEventListener('load', function(){
+        status.classList.toggle('hidden');
+        tabs.classList.toggle('hidden');
+    })
 </script>

@@ -11,9 +11,14 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",
-    "@astrojs/vue": "3.0.0",
+    "@astrojs/vue": "^4.0.9",
+    "@emailjs/browser": "^4.3.3",
+    "@splidejs/splide": "^4.1.4",
+    "@splidejs/splide-extension-auto-scroll": "^0.5.3",
+    "@sweetalert2/theme-dark": "^5.0.16",
     "astro": "^4.5.3",
     "flowbite": "^2.3.0",
+    "sweetalert2": "^11.4.8",
     "tailwindcss": "3.3.3",
     "tailwindcss-animated": "^1.0.1",
     "vue": "3.3.4"

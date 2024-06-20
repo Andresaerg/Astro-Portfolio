@@ -6,9 +6,20 @@ module.exports = {
 	],
 	theme: {
 		fontFamily: {
-			'anta' : ["Anta", "sans-serif"]
+			'anta' : ["Anta", "sans-serif"],
+			'sono' : ["Sono", "sans-serif"]
 		},
-		extend: {},
+		extend: {
+			animation: {
+				'border-animation': 'border-animation 2s linear infinite',
+			},
+			keyframes: {
+				'border-animation': {
+					'0%': { 'background-position': '0%' },
+					'100%': { 'background-position': '400%' },
+				},
+			}
+		},
 	},
 	plugins: [
 		require('flowbite/plugin'),
