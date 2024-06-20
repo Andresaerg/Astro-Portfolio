@@ -14,7 +14,7 @@ const PROJECTS = 8;
   </div>
   <div class="flex items-center gap-x-1 md:gap-x-2">
     <span class="text-2xl md:text-5xl">+</span>
-    <h2 id="experience">{EXPERIENCE}</h2>
+    <h2 id="areaExperience">{EXPERIENCE}</h2>
     <div class="flex flex-col title">
       <span>YEARS IN</span>
       <span>THE AREA</span>
@@ -23,7 +23,7 @@ const PROJECTS = 8;
 
   <div class="flex items-center gap-x-1 md:gap-x-2">
     <span class="text-2xl md:text-5xl">+</span>
-    <h2 id="projects">{PROJECTS}</h2>
+    <h2 id="totalProjects">{PROJECTS}</h2>
     <div class="flex flex-col title">
       <span>PROJECTS</span>
       <span>COMPLETED</span>
@@ -57,8 +57,8 @@ const totalExp = subtractYears(dateNow, 2019);
 const areaExp = subtractYears(dateNow, 2021);
 
 play_numbers(totalExp, 'total_experience');
-play_numbers(areaExp, 'experience');
-play_numbers(8, 'projects');
+play_numbers(areaExp, 'areaExperience');
+play_numbers(8, 'totalProjects');
 
 </script>
 

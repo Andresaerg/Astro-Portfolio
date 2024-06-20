@@ -44,7 +44,6 @@ const { category, title, body, image_src, buttons, badges, isReversed} = Astro.p
 
 				{image_src.map((src, index) => (
 					<div class="hidden duration-700 ease-in-out " data-carousel-item>
-						<!--img class={`h-auto w-full rounded-lg block object-contain`} src={src} alt={`image_${index}`} /-->
 						<a href={src} target="_blank" rel="noopener noreferrer">
 							<Image src={src} width={100} height={100} loading="eager" class="absolute block rounded-lg w-full md:w-10/12 h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt={`image_${index}`} />
 						</a>

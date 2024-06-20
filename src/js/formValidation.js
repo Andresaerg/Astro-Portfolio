@@ -21,59 +21,76 @@ document.querySelectorAll('form input:required, form textarea:required').forEach
     });
 });
 
+const validateEmail = (email) => {
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+};
+
+// Función para validar el formulario
+const validateForm = () => {
+    if (user_name.value === '' || email.value === '' || message.value === '') {
+        Swal.fire({
+            title: 'Complete todos los campos',
+            text: 'Por favor, complete todos los campos requeridos para enviar el mensaje',
+            icon: 'info',
+            confirmButtonText: 'Volver'
+        });
+        return false; // Prevent form submission
+    }
+
+    if (!validateEmail(email.value)) {
+        console.log(validateEmail(email))
+        Swal.fire({
+            title: 'Email inválido',
+            text: 'Por favor, ingrese un email válido',
+            icon: 'error',
+            confirmButtonText: 'Volver'
+        });
+        return false; // Prevent form submission
+    }
+
+    // Other validations (if needed)
+
+    // If all validations pass, allow form submission
+    return true;
+};
 
 document.getElementById('form')
 .addEventListener('submit', function(event) {
             
     event.preventDefault();
 
-    if(user_name.value === '' || email.value === '' || message === ''){
-        Swal.fire({
-            title: 'Complete todos los campos', 
-            text: 'Por favor, complete todos los campos para enviar el mensaje', 
-            icon: 'info',
-            confirmButtonText: 'Volver'
+    if(validateForm()){
+        btn.disabled = true;
+        btn.value = 'Enviando...';
+    
+        emailjs.sendForm(serviceID, templateID, this, {
+            publicKey: '1DYi9grOdbv7E9jR3',
         })
-
-        return;
+        .then(() => {
+            btn.value = 'Enviar';
+            Swal.fire({
+                title: 'Correo enviado', 
+                text: '¡Gracias por su mensaje!', 
+                icon: 'success', 
+                confirmButtonText: 'Volver'
+            });
+    
+            user_name.value = '';
+            email.value = '';
+            company.value = '';
+            message.value = '';
+            btn.disabled = false;
+        }, (err) => {
+            btn.value = 'Enviar';
+            console.log(JSON.stringify(err))
+            Swal.fire({
+                title: 'Oops', 
+                text: 'Algo ha salido mal...', 
+                icon: 'error',
+                confirmButtonText: 'Volver'
+            });
+            btn.disabled = false;
+        });
     }
-
-    btn.disabled = true;
-    btn.value = 'Enviando...';
-
-    emailjs.sendForm(serviceID, templateID, this, {
-        publicKey: '1DYi9grOdbv7E9jR3',
-    })
-    .then(() => {
-        btn.value = 'Enviar';
-        Swal.fire({
-            title: 'Correo enviado', 
-            text: '¡Gracias por su mensaje!', 
-            icon: 'success', 
-            confirmButtonText: 'Volver'
-        });
-
-        user_name.value = '';
-        email.value = '';
-        company.value = '';
-        message.value = '';
-        btn.disabled = false;
-    }, (err) => {
-        btn.value = 'Enviar';
-        console.log(JSON.stringify(err))
-        Swal.fire({
-            title: 'Oops', 
-            text: 'Algo ha salido mal...', 
-            icon: 'error',
-            confirmButtonText: 'Volver'
-        });
-        btn.disabled = false;
-    });
-
 })
-
-const validateEmail = (email) => {
-    return email.match(
-        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    );
-};

@@ -3,7 +3,7 @@ import MoonIcon from './icons/Moon.astro';
 import SunIcon from './icons/Sun.astro';
 ---
 
-<button id="toggle" data-tooltip-target="tooltip-toggle" type="button" class="text-gray-500 inline-flex items-center justify-center dark:text-gray-400 hover:bg-gray-100 w-10 h-10 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"> <!-- class="relative group text-white bg-transparent font-medium rounded-lg text-sm focus:outline-none"> -->
+<button id="toggle" data-tooltip-target="tooltip-toggle" type="button" class="text-gray-500 inline-flex items-center justify-center dark:text-gray-400 hover:bg-gray-100 w-10 h-10 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
 
     <span class="sr-only">Elige el tema</span>
     <MoonIcon id="dark" class="theme-toggler w-5 h-5 text-gray-800 dark:text-white transition ease-in-out delay-100"/>
@@ -40,9 +40,9 @@ import SunIcon from './icons/Sun.astro';
         // Obtén la referencia al elemento 'link' existente
         let link = document.querySelector('link[data-theme="sweetalert2"]');
         if(themePreference === LIGHT_THEME){
-            link.href = '/node_modules/sweetalert2/dist/sweetalert2.min.css';
+            link.href = 'https://cdn.jsdelivr.net/npm/@sweetalert2/theme-default@5.0.16/default.min.css';
         }else{
-            link.href = '../../node_modules/@sweetalert2/theme-dark/dark.min.css';
+            link.href = 'https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5.0.16/dark.min.css';
         }
     }
 
@@ -65,9 +65,9 @@ import SunIcon from './icons/Sun.astro';
         let link = document.querySelector('link[data-theme="sweetalert2"]');
 
         if(newTheme === LIGHT_THEME){
-            link.href = '/node_modules/sweetalert2/dist/sweetalert2.min.css';
+            link.href = 'https://cdn.jsdelivr.net/npm/@sweetalert2/theme-default@5.0.16/default.min.css';
         }else{
-            link.href = '../../node_modules/@sweetalert2/theme-dark/dark.min.css';
+            link.href = 'https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5.0.16/dark.min.css';
         }
     }
 
@@ -90,7 +90,6 @@ import SunIcon from './icons/Sun.astro';
         outline: none;
         box-shadow: none;
         background: transparent;
-        /* color: rgb(243 244 246); */
         animation: svg-animation 10s linear both;
         animation-timeline: scroll();
         animation-range: 0 100px;
@@ -98,7 +97,7 @@ import SunIcon from './icons/Sun.astro';
 
     @keyframes svg-animation{
         to {
-            @apply /* text-gray-100 */ bg-transparent;
+            @apply bg-transparent;
         }
     }
 </style>

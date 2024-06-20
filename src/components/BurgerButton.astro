@@ -1,36 +1,29 @@
 ---
-const navItems = [
-    {
-        title: "Experiencia",
-        href: "/#experiencia"
-    },
-    {
-        title: "Proyectos",
-        href: "/#proyectos"
-    },
-    {
-        title: "Sobre mí",
-        href: "/#sobre-mi"
-    },
-]
+import Navigation from "./commons/NavigationItems.astro";
+
+interface Props {
+    lang: string,
+}
+
+const { lang } = Astro.props;
+
+const navOptions = [{
+    lang: lang,
+    section: 'burger'
+}]
 ---
 <div {...Astro.props}>
     <button title="button" type="button" id="burger" class="z-50 relative flex items-center justify-center w-5 h-5">
-        <!-- <span class="w-[25px] h-[3px] bg-gray-900 dark:bg-gray-100 rounded-[5px] [box-shadow:0_2px_5px_rgba(255,101,47,.2)] [transition:all_.5s_ease-in-out] after:content-[''] after:absolute after:w-[20px] after:h-[3px] after:bg-gray-900 dark:after:bg-gray-100 after:rounded-[5px] after:[box-shadow:0_2px_5px_rgba(255,101,47,.2)] after:[transition:all_.5s_ease-in-out] aaa before:content-[''] before:absolute before:w-[20px] before:h-[3px] before:bg-gray-900 before:after:bg-gray-100 before:rounded-[5px] before:[box-shadow:0_2px_5px_rgba(255,101,47,.2)] before:[transition:all_.5s_ease-in-out] before:-translate-x-[10px] before:-translate-y-[7px] after:-translate-x-[10px] after:translate-y-[7px]"></span> -->
         <span class="base bg-gray-900 dark:bg-gray-100 before:bg-gray-900 dark:before:bg-gray-100 after:bg-gray-900 dark:after:bg-gray-100"></span>
     </button>
 
 
     <!-- Menú desplegable -->
-    <ul id="burger_list" class="text-gray-100 fixed inset-0 bg-black bg-opacity-90 backdrop-blur-lg h-screen flex! hidden items-center justify-center flex-col">
-        {
-            navItems.map(item => (
-                <li>
-                    <a href={item.href}> { item.title } </a>
-                </li>
-            ))
-        }
-    </ul>
+    {
+        navOptions.map(items => (
+            <Navigation {...items} />
+        ))
+    }
 </div>
 
 <script>
@@ -43,68 +36,21 @@ const navItems = [
         list.classList.toggle('hidden');
         list.classList.toggle('flex');
         menu.classList.toggle('open');
+
+        menu.classList.contains('open') ? (
+            document.getElementById('nav').classList.remove('backdrop-blur-lg'),
+            document.querySelector('body').classList.add('overflow-hidden')
+        ) : (
+                document.getElementById('nav').classList.add('backdrop-blur-lg'),
+                document.querySelector('body').classList.remove('overflow-hidden')
+            )
     }
 
 </script>
 
 <style>
-    /* Define una transición CSS para animar al botón */
-    /* span.base{
-        width: 25px;
-        height: 3px;
-        background: #fff;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(255,101,47,.2);
-        transition: all .5s ease-in-out;
-    }
-    span.base::before,
-    span.base::after {
-        content: '';
-        position: absolute;
-        width: 20px;
-        height: 3px;
-        background: #fff;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(255,101,47,.2);
-        transition: all .5s ease-in-out;
-    }
-    span.base::before {
-        transform: translate(-10px, -7px);
-    }
-    span.base::after {
-        transform: translate(-10px, 7px);
-    } */
-    /* button.open span.base{
-        transform: translateX(-10px);
-        background: transparent;
-        box-shadow: none;
-    }
-    button.open span.base::before {
-        transform: rotate(45deg) translate(0px,  0px);
-        background: #fff;
-    }
-    button.open span.base::after {
-        transform: rotate(-45deg) translate(0px, 0px);
-        background: #fff;
-    } */
-
-    /* @media (prefers-color-scheme: dark){
-        span.base, span.base::before, span.base::after{
-            background: #fff;
-        }
-    }
-
-    @media (prefers-color-scheme: light){
-        span.base, span.base::before, span.base::after{
-            background: #111;
-        }
-    } */
-
     span.base {
         @apply w-[25px] h-[3px] shadow-[0_2px_5px_rgba(255,101,47,0.2)] transition-all duration-[0.5s] ease-[ease-in-out] rounded-[5px] before:-translate-x-2.5 before:translate-y-[-7px] after:-translate-x-2.5 after:translate-y-[7px];
-        /* animation: svg-animation 1s linear both;
-        animation-timeline: scroll();
-        animation-range: 0 100px; */
     }
     span.base::before,
     span.base::after {

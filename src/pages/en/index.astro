@@ -6,6 +6,9 @@ import CounterBar from "../../components/en/CounterBar.astro";
 import Experience from "../../components/en/Experience.astro";
 import AboutMe from "../../components/en/AboutMe.astro";
 import Contact from "../../components/en/Contact.astro";
+import Braces from "../../components/icons/Braces.astro";
+import About from "../../components/icons/About.astro";
+import Mail from "../../components/icons/Contact.astro";
 ---
 
 <Layout lang="en" title="Andrés Rosales | Engineer">
@@ -18,52 +21,40 @@ import Contact from "../../components/en/Contact.astro";
             <CounterBar />
         </section>
 
-        <section id="experiencia" class="space-y-16 py-16 px-6">
+        <div id="experience" class="space-y-16 py-16 px-6">
             <section class="md:w-10/12 mx-auto">
-            <Experience />
-        </section>
+                <Experience />
+            </section>
 
-        <section id="proyectos" class="md:w-10/12 mx-auto pt-16">
-            <h3 class="flex gap-x-3 md:gap-x-6 items-center mb-8 text-3xl">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-braces w-8 h-8" viewBox="0 0 16 16">
-                        <path d="M2.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C3.25 2 2.49 2.759 2.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6M13.886 7.9v.163c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456V7.332c-1.114 0-1.49-.362-1.49-1.456V4.352C13.51 2.759 12.75 2 11.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6"/>
-                    </svg>
-                </span>
-                Projects
-            </h3>
-            <Projects />
-        </section>
+            <section id="projects" class="md:w-10/12 mx-auto pt-16">
+                <h3 class="flex gap-x-3 md:gap-x-6 items-center mb-8 text-3xl">
+                    <span>
+                        <Braces class="w-8 h-8"/>
+                    </span>
+                    Projects
+                </h3>
+                <Projects />
+            </section>
 
-        <section id="sobre-mi" class="md:w-10/12 mx-auto pt-16">
-            <h3 class="flex gap-x-3 md:gap-x-6 items-center mb-8 text-3xl">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-workspace w-8 h-8" viewBox="0 0 16 16">
-                        <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
-                        <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.4 5.4 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2z"/>
-                    </svg>
-                </span>
-                About me
-            </h3>
-            <AboutMe />
-        </section>
+            <section id="about-me" class="md:w-10/12 mx-auto pt-16">
+                <h3 class="flex gap-x-3 md:gap-x-6 items-center mb-8 text-3xl">
+                    <span>
+                        <About class="w-8 h-8" />
+                    </span>
+                    About me
+                </h3>
+                <AboutMe />
+            </section>
 
-        <section class="md:w-10/12 mx-auto">
-            <h3 class="flex gap-x-3 md:gap-x-6 items-center mb-8 text-3xl">
-                <span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-mailbox-flag w-8 h-8" viewBox="0 0 16 16">
-                    <path d="M10.5 8.5V3.707l.854-.853A.5.5 0 0 0 11.5 2.5v-2A.5.5 0 0 0 11 0H9.5a.5.5 0 0 0-.5.5v8zM5 7c0 .334-.164.264-.415.157C4.42 7.087 4.218 7 4 7s-.42.086-.585.157C3.164 7.264 3 7.334 3 7a1 1 0 0 1 2 0"/>
-                    <path d="M4 3h4v1H6.646A4 4 0 0 1 8 7v6h7V7a3 3 0 0 0-3-3V3a4 4 0 0 1 4 4v6a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V7a4 4 0 0 1 4-4m0 1a3 3 0 0 0-3 3v6h6V7a3 3 0 0 0-3-3"/>
-                </svg>
-                </span>
-                Contact
-            </h3>
-            <Contact />
-        </section>
-
+            <section class="md:w-10/12 mx-auto">
+                <h3 class="flex gap-x-3 md:gap-x-6 items-center mb-8 text-3xl">
+                    <span>
+                        <Mail class="w-8 h-8" />
+                    </span>
+                    Contact
+                </h3>
+                <Contact />
+            </section>
+        </div>
     </main>
 </Layout>
-
-<script type="module">
-    import '../../node_modules/flowbite/dist/flowbite';
-</script>

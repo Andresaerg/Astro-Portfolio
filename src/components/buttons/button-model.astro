@@ -8,9 +8,10 @@ interface Props {
     icon: string,
     href?: string,
     classes? : string,
+    isDownloadable?: boolean,
 }
 
-const { label, icon, href, classes } = Astro.props;
+const { label, icon, href, classes, isDownloadable } = Astro.props;
 
 const ICONS = {
     'Github': Github,
@@ -19,8 +20,9 @@ const ICONS = {
 };
 
 const IconComponent = ICONS[icon];
+//const downloadAttribute = {isDownloadable ? 'download' : ''};
 ---
-<a href=`${href}` target="_blank">
+<a href=`${href}` target="_blank" download={ isDownloadable ? 'CV-AndrésRosales[2K24].pdf' : undefined }>
     <button type="button" class=`${classes} py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700`>
         <div class="flex items-center gap-x-4">
             {

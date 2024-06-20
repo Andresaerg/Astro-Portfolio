@@ -1,5 +1,5 @@
 ---
-import ProjectItems from './ProjectItems.astro';
+import ProjectItems from '../ProjectItems.astro';
 
 const PROJECTS = [
     {
@@ -212,7 +212,7 @@ const PROJECTS = [
         <span class="sr-only">Cargando...</span>
     </div>
 
-    <div id="tabs" class="hidden /*mb-4*/ border-b border-gray-200 dark:border-gray-700">
+    <div id="tabs" class="hidden border-b border-gray-200 dark:border-gray-700">
         <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
             <li class="me-2" role="presentation">
                 <button class="inline-block p-4 border-b-2 rounded-t-lg" id="recent-tab" data-tabs-target="#recent" type="button" role="tab" aria-controls="recent" aria-selected="false">Recientes</button>
@@ -234,55 +234,55 @@ const PROJECTS = [
     
     <div id="default-tab-content">
         <!-- Tabs section -->
-        <div class="hidden /*p-4*/ rounded-lg /*bg-gray-50 dark:bg-gray-800*/" id="recent" aria-labelledby="recent-tab">
+        <div class="hidden rounded-lg" id="recent" aria-labelledby="recent-tab">
             <ol class="relative border-gray-200 dark:border-gray-700">
                 {
                     PROJECTS.slice(0,2).map(project => (
-                        <li class="py-12 /*mb-16*/ border-b-2 last:border-b-0 border-gray-700">
+                        <li class="py-12 border-b-2 last:border-b-0 border-gray-700">
                             <ProjectItems {...project} />
                         </li>
                     ))
                 }
             </ol>
         </div>
-        <div class="hidden /*p-4*/ rounded-lg /*bg-gray-50 dark:bg-gray-800*/" id="full" role="tabpanel" aria-labelledby="full-tab">
+        <div class="hidden rounded-lg" id="full" role="tabpanel" aria-labelledby="full-tab">
             <ol class="relative border-gray-200 dark:border-gray-700">
                 {
                     [...PROJECTS].reverse().filter(project => project.category === 'Fullstack').map(project => (
-                        <li class="py-12 /*mb-16*/ border-b-2 last:border-b-0 border-gray-700">
+                        <li class="py-12 border-b-2 last:border-b-0 border-gray-700">
                             <ProjectItems {...project} />
                         </li>
                     ))
                 }
             </ol>
         </div>
-        <div class="hidden /*p-4*/ rounded-lg /*bg-gray-50 dark:bg-gray-800*/" id="back" role="tabpanel" aria-labelledby="back-tab">
+        <div class="hidden rounded-lg" id="back" role="tabpanel" aria-labelledby="back-tab">
             <ol class="relative border-gray-200 dark:border-gray-700">
                 {
                     PROJECTS.filter(project => project.category === 'Backend').map(project => (
-                        <li class="py-12 /*mb-16*/ border-b-2 last:border-b-0 border-gray-700">
+                        <li class="py-12 border-b-2 last:border-b-0 border-gray-700">
                             <ProjectItems {...project} />
                         </li>
                     ))
                 }
             </ol>
         </div>
-        <div class="hidden /*p-4*/ rounded-lg /*bg-gray-50 dark:bg-gray-800*/" id="front" role="tabpanel" aria-labelledby="front-tab">
+        <div class="hidden rounded-lg" id="front" role="tabpanel" aria-labelledby="front-tab">
             <ol class="relative border-gray-200 dark:border-gray-700">
                 {
                     PROJECTS.filter(project => project.category === 'Frontend').map(project => (
-                        <li class="py-12 /*mb-16*/ border-b-2 last:border-b-0 border-gray-700">
+                        <li class="py-12 border-b-2 last:border-b-0 border-gray-700">
                             <ProjectItems {...project} />
                         </li>
                     ))
                 }
             </ol>
         </div>
-        <div class="hidden /*p-4*/ rounded-lg /*bg-gray-50 dark:bg-gray-800*/" id="mobile" role="tabpanel" aria-labelledby="mobile-tab">
+        <div class="hidden rounded-lg" id="mobile" role="tabpanel" aria-labelledby="mobile-tab">
             <ol class="relative border-gray-200 dark:border-gray-700">
                 {
                     PROJECTS.filter(project => project.category === 'Mobile').map(project => (
-                        <li class="py-12 /*mb-16*/ border-b-2 last:border-b-0 border-gray-700">
+                        <li class="py-12 border-b-2 last:border-b-0 border-gray-700">
                             <ProjectItems {...project} />
                         </li>
                     ))

@@ -1,6 +1,6 @@
 ---
-import Item from "./ExperienceItems.astro";
-import V_svg from "../v-svg.vue";
+import Item from "../ExperienceItems.astro";
+import Chart from '../icons/Experience.astro';
 const EXPERIENCE = [
     {
         title: "Freelancer Developer",
@@ -28,10 +28,7 @@ const EXPERIENCE = [
 ---
 <h3 class="flex gap-x-3 md:gap-x-6 items-center mb-8 text-3xl">
     <span>
-        <!-- <V_svg name="Suitcase"/> -->
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
-        </svg>
+        <Chart class="w-6 h-6" />
     </span>
     Experience
 </h3>
@@ -54,19 +51,4 @@ const EXPERIENCE = [
 		background-size: 400%;
 		background-position: 0%;
     }
-/* 
-    h1{
-        font-size: 5rem;
-        font-weight: bold;
-    }
-
-    h2{
-        font-size: 4rem;
-        font-weight: bold;
-    }
-
-    h3{
-        font-size: 2rem;
-        font-weight: bold;
-    } */
 </style>

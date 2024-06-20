@@ -9,8 +9,6 @@ const message = document.getElementById('floating_message');
 const serviceID = 'default_service';
 const templateID = 'template_i02kfup';
 
-console.log(email)
-
 document.querySelectorAll('form input:required, form textarea:required').forEach(input => {
     input.addEventListener('invalid', function() {
         this.classList.add('border-red-600', 'focus:border-red-600', 'dark:border-red-600','dark:focus:border-red-600');
