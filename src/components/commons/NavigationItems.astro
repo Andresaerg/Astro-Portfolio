@@ -24,15 +24,15 @@ const navItems = {
     'en': [
             {
                 title: "Experience",
-                url: "/en#experience",
+                url: "/en/#experience",
             },
             {
                 title: "Projects",
-                url: "/en#projects",
+                url: "/en/#projects",
             },
             {
                 title: "About me",
-                url: "/en#about-me",
+                url: "/en/#about-me",
             },
         ],
 }
@@ -76,7 +76,7 @@ const sectionComponent = sectionHandler[section];
 )}
 
 {sectionComponent === 'burger' && (
-    <ul id="burger_list" class="text-gray-100 overflow-hidden fixed inset-0 bg-black bg-opacity-80 backdrop-blur h-screen flex! hidden items-center justify-center flex-col">
+    <ul id="burger_list" class="transform transition ease-in-out duration-1000 burger__closed text-gray-100 overflow-hidden fixed inset-0 bg-black bg-opacity-80 backdrop-blur h-screen hidden items-center justify-center flex-col">
         {
             optionsComponent.map(item => (
                 <li>

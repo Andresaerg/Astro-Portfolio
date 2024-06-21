@@ -4,14 +4,16 @@ import View from '../icons/View.astro';
 import Download from '../icons/Download.astro';
 
 interface Props {
+    id?: string,
     label: string,
     icon: string,
     href?: string,
     classes? : string,
     isDownloadable?: boolean,
+    lang?: string
 }
 
-const { label, icon, href, classes, isDownloadable } = Astro.props;
+const { id, label, icon, href, classes, isDownloadable, lang } = Astro.props;
 
 const ICONS = {
     'Github': Github,
@@ -22,7 +24,7 @@ const ICONS = {
 const IconComponent = ICONS[icon];
 //const downloadAttribute = {isDownloadable ? 'download' : ''};
 ---
-<a href=`${href}` target="_blank" download={ isDownloadable ? 'CV-AndrésRosales[2K24].pdf' : undefined }>
+<a id={id} href={href} target="_blank" data-download={ isDownloadable && lang === 'es'  ? 'CV-AndrésRosales[2K24].pdf' : 'CV-AndrésRosales[2K24]ENG.pdf' }>
     <button type="button" class=`${classes} py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700`>
         <div class="flex items-center gap-x-4">
             {
@@ -33,3 +35,7 @@ const IconComponent = ICONS[icon];
         </div>
     </button>
 </a>
+
+<script>
+    import '/src/js/downloadFile.js'
+</script>

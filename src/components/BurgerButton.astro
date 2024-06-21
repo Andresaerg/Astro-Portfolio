@@ -33,9 +33,14 @@ const navOptions = [{
     menu.addEventListener('click', toggleMenu);
     
     function toggleMenu(){
+        list.addEventListener('click', function() {
+            toggleMenu();
+        })
+
         list.classList.toggle('hidden');
         list.classList.toggle('flex');
         menu.classList.toggle('open');
+        document.getElementById('nav_logo').classList.toggle('!text-gray-100');
 
         menu.classList.contains('open') ? (
             document.getElementById('nav').classList.remove('backdrop-blur-lg'),
@@ -60,10 +65,4 @@ const navOptions = [{
         @apply -translate-x-2.5 shadow-none before:rotate-45 before:bg-gray-100 before:translate-x-0 before:translate-y-0 after:-rotate-45 after:bg-gray-100 after:translate-x-0 after:translate-y-0;
         background: transparent;
     }
-
-    @keyframes svg-animation{
-        to {
-            @apply text-gray-100 bg-transparent;
-        }
-    }
-    </style>
+</style>

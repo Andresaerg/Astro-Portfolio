@@ -10,7 +10,7 @@ import Translation from './icons/Translation.astro';
 </button>
 
 <div id="language-toggle" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-    <span id="tooltip-toggle-text">Cambiar idioma</span>
+    <span id="tooltip-toggle-lang">Cambiar idioma</span>
     <div class="tooltip-arrow" data-popper-arrow></div>
 </div>
 
@@ -19,6 +19,7 @@ import Translation from './icons/Translation.astro';
     
     const LANG_KEY = 'lang';
     const ACTUAL_LANG = navigator.language;
+    const TOOLTIP_TEXT = document.getElementById('tooltip-toggle-lang');
 
     // Manejo de lenguaje
     document.getElementById('language').addEventListener('click', toggleLang);
@@ -34,7 +35,13 @@ import Translation from './icons/Translation.astro';
     {
         localStorage.setItem(LANG_KEY, lang);
         const langPreference = getLangPreference();
-        langPreference.includes('en') ? window.location.href = '/en' : window.location.href = '/'
+        langPreference.includes('en') ? window.location.href = '/en/' : window.location.href = '/'
+    }
+
+    function updateLangTooltip(lang)
+    {
+        TOOLTIP_TEXT.textContent = lang.includes('en') && window.location.href.includes('/en')
+            ? 'Change language' : 'Cambiar idioma'
     }
 
     function toggleLang() 
@@ -42,7 +49,11 @@ import Translation from './icons/Translation.astro';
         const currentLang = getLangPreference();
         const newLang = currentLang.includes('en') && window.location.href.includes('/en') ? 'es' : 'en';
         setLangPreference(newLang);
+        updateLangTooltip(newLang);
     }
+
+    const currentLang = getLangPreference();
+    updateLangTooltip(currentLang)
 
     window.onload = () => {
         const myLangPref = getLangPreference();
@@ -58,7 +69,7 @@ import Translation from './icons/Translation.astro';
                 cancelButtonText: 'Stay here',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '/en';
+                    window.location.href = '/en/';
                 }
             });
         }
