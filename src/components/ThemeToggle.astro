@@ -74,7 +74,7 @@ import SunIcon from './icons/Sun.astro';
     // Actualizar el texto del tooltip
     function updateTooltip(theme) {
         const tooltip = document.getElementById('tooltip-toggle-text');
-        if(localStorage.getItem('lang').includes('en')){
+        if(window.location.href.includes('/en')){
             tooltip.textContent = theme === DARK_THEME ? 'Switch to light mode' : 'Switch to dark mode';
         }else{
             tooltip.textContent = theme === DARK_THEME ? 'Usar modo claro' : 'Usar modo oscuro';
